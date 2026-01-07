@@ -1,0 +1,10 @@
+{
+  "name": "delphi-verifactu-context",
+  "version": "1.1.0",
+  "category": "domain/verifactu",
+  "complexity": 1,
+  "estimated_tokens": "800-1200",
+  "type": "context",
+  "path": "domain/verifactu/contexts/delphi-verifactu-context.md",
+  "tags": ["verifactu", "aeat", "compliance", "hash", "qr", "delphi"]
+}

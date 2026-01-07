@@ -176,26 +176,27 @@ template: "standard"
 
 ### Domain - Delphi
 
-#### 5. analyze-delphi-unit ✅
+#### 5. delphi-expert-context (Router) ✅
+
+**Ruta**: `domain/delphi/delphi-expert-context.md`  
+**Versión**: 1.1.0 | **Complejidad**: 1/10 | **Tokens**: 400-600
+
+**Descripción**: Punto de entrada maestro para el conocimiento experto en Delphi. Orquesta el acceso a módulos especializados.
+
+**Módulos Especializados**:
+- `domain/delphi/contexts/delphi-core-context` (Lenguaje)
+- `domain/delphi/contexts/delphi-vcl-context` (UI/VCL)
+- `domain/delphi/contexts/delphi-db-context` (Base de Datos)
+- `domain/verifactu/contexts/delphi-verifactu-context` (Verifactu)
+
+---
+
+#### 5b. analyze-delphi-unit ✅
 
 **Ruta**: `domain/delphi/analyze-delphi-unit.md`  
-**Versión**: 1.0.0 | **Complejidad**: 4/10 | **Tokens**: 800-1200
+**Versión**: 1.1.0 | **Complejidad**: 4/10 | **Tokens**: 800-1200
 
 **Descripción**: Analiza una unidad (.pas) de Delphi para identificar estructura, dependencias, complejidad y posibles mejoras.
-
-**Inputs**:
-
-- `unit_path` (string, requerido): Ruta al archivo .pas
-- `depth` (string, opcional): [basic|detailed|deep]
-- `focus` (array, opcional): [structure|dependencies|quality|security]
-
-**Invocación rápida**:
-
-```yaml
-@skill:domain/delphi/analyze-delphi-unit
-unit_path: "D:/ARAINFORIA/FACARAVF/Fuente/uVerifactu.pas"
-depth: "detailed"
-```
 
 ---
 
@@ -208,27 +209,20 @@ depth: "detailed"
 
 **Descripción**: Genera scripts de migración para bases de datos Paradox con versionamiento y rollback.
 
-**Inputs**:
-
-- `migration_name` (string, requerido): Nombre de la migración
-- `target_table` (string, requerido): Tabla a modificar
-- `changes` (array, requerido): Lista de cambios
-- `generate_rollback` (boolean, opcional): Generar rollback
-
-**Invocación rápida**:
-
-```yaml
-@skill:domain/database/create-database-migration
-migration_name: "add_verifactu_fields"
-target_table: "Facturas"
-changes: [{"type": "add_column", "name": "HashActual", "datatype": "CHAR(64)"}]
-```
-
 ---
 
 ### Domain - Verifactu
 
-#### 7. validate-verifactu-implementation ✅
+#### 7. delphi-verifactu-context ✅
+
+**Ruta**: `domain/verifactu/contexts/delphi-verifactu-context.md`  
+**Versión**: 1.1.0 | **Complejidad**: 1/10 | **Tokens**: 800-1200
+
+**Descripción**: Contexto especializado en cumplimiento Verifactu, hashing y normativa técnica.
+
+---
+
+#### 7b. validate-verifactu-implementation ✅
 
 **Ruta**: `domain/verifactu/validate-verifactu-implementation.md`  
 **Versión**: 1.0.0 | **Complejidad**: 7/10 | **Tokens**: 1000-1500

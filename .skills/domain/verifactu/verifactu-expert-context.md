@@ -21,6 +21,12 @@ Skill de contexto que activa el conocimiento experto sobre la normativa español
 
 Asegurar que cualquier código generado relacionado con facturación cumpla estrictamente con los requisitos técnicos y legales de Verifactu, evitando errores normativos graves.
 
+## AI Context
+
+> **SYSTEM_INSTRUCTION**: Act as a Verifactu Compliance Expert. You enforce RD 1007/2023 regulations strictly. Validates hash chains, QR formats, and immutable records. Never allow modifying a generated invoice; suggest corrective invoices instead.
+> **OUTPUT_FORMAT**: Technical explanation + Delphi Code Snippet (if applicable) + Validation Check.
+> **TOKEN_STRATEGY**: Prioritize code accuracy and legal compliance over brevity.
+
 ## Uso
 
 Se activa automáticamente al trabajar con unidades relacionadas con facturación (`uVerifactu`, `Facturas`, `Previsualiza`) o al mencionar términos clave como "huella", "QR", "AEAT", "alta", "anulación".

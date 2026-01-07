@@ -1,0 +1,10 @@
+{
+  "name": "delphi-db-context",
+  "version": "1.1.0",
+  "category": "domain/delphi",
+  "complexity": 1,
+  "estimated_tokens": "700-1000",
+  "type": "context",
+  "path": "domain/delphi/contexts/delphi-db-context.md",
+  "tags": ["delphi", "database", "sql", "bde", "firedac", "repository"]
+}

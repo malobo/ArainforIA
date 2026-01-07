@@ -1,7 +1,7 @@
 {
     "id": "delphi-expert-context",
-    "name": "Contexto Experto en Delphi/Object-Pascal",
-    "version": "2.0.0",
+    "name": "Contexto Maestro Delphi Expert",
+    "version": "1.1.0",
     "category": "domain/delphi",
     "path": "domain/delphi/delphi-expert-context.md",
     "type": "context",
@@ -9,77 +9,20 @@
     "tags": [
         "delphi",
         "expert",
-        "context",
-        "object-pascal",
-        "vcl",
-        "knowledge",
-        "delphi-11",
-        "delphi-12",
-        "delphi-13",
-        "verifactu",
-        "patterns",
-        "migration",
-        "bde",
-        "firedac"
+        "master",
+        "context"
     ],
     "complexity": 1,
-    "estimated_tokens": "2000-3000",
-    "content_sections": 12,
-    "lines_of_code_examples": 2000,
+    "estimated_tokens": "400-600",
     "author": "Sistema",
     "created": "2026-01-07",
     "updated": "2026-01-07",
     "status": "stable",
-    "description": "Skill de contexto experto completo en Object-Pascal y Delphi (11, 12, 13). Incluye patrones de diseño avanzados, componentes de terceros, implementación Verifactu y guía de migración.",
-    "triggers": {
-        "file_extensions": [
-            ".pas",
-            ".dpr",
-            ".dpk",
-            ".dfm",
-            ".dproj"
-        ],
-        "keywords": [
-            "delphi",
-            "object-pascal",
-            "pascal",
-            "vcl",
-            "fmx"
-        ],
-        "explicit": "@skill:domain/delphi/delphi-expert-context"
-    },
-    "knowledge_areas": [
-        "Object-Pascal syntax (basic to advanced)",
-        "Delphi 11/12/13 specific features",
-        "Inline variables and type inference",
-        "Custom managed records",
-        "Binary literals and multiline strings",
-        "VCL components and best practices",
-        "Design patterns (Singleton, Factory, Observer, Repository, Command, Strategy, Builder, Decorator, State, Unit of Work)",
-        "BDE/Paradox databases",
-        "FireDAC modern database access",
-        "Multithreading (TTask, TParallel, TThread)",
-        "RTTI and serialization",
-        "Generics and anonymous methods",
-        "Exception handling patterns",
-        "Verifactu implementation (hash, XML, QR, validation)",
-        "DevExpress components (cxGrid, ExpressBars)",
-        "FastReport integration",
-        "Indy HTTP/SMTP",
-        "DelphiZXingQRCode",
-        "TMS Components",
-        "Migration Delphi 10.x to 11/12/13",
-        "Migration ANSI to Unicode",
-        "Migration BDE to FireDAC",
-        "Compiler directives and version detection",
-        "Utility classes and helpers"
-    ],
-    "combines_with": [
-        "domain/delphi/analyze-delphi-unit",
-        "core/generation/generate-boilerplate",
-        "core/refactoring/extract-method",
-        "domain/verifactu/validate-verifactu-implementation"
-    ],
-    "usage_count": 0,
-    "last_used": null
+    "description": "Punto de entrada maestro para el conocimiento experto en Delphi. Orquesta el acceso a módulos especializados (Core, VCL, DB, Verifactu).",
+    "sub_modules": [
+        "domain/delphi/contexts/delphi-core-context",
+        "domain/delphi/contexts/delphi-vcl-context",
+        "domain/delphi/contexts/delphi-db-context",
+        "domain/verifactu/contexts/delphi-verifactu-context"
+    ]
 }
