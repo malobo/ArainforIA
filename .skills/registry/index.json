@@ -11,27 +11,27 @@
           "description": "Análisis de código, arquitectura y dependencias",
           "skills": [
             { "name": "validate-skill-format", "path": "core/analysis/validate-skill-format.md", "version": "1.1.0", "complexity": 3 },
-            { "name": "sync-skills-registry", "path": "core/analysis/sync-skills-registry.md", "version": "1.0.0", "complexity": 2 },
+            { "name": "sync-skills-registry", "path": "core/analysis/sync-skills-registry.md", "version": "1.1.0", "complexity": 2 },
             { "name": "validate-system-health", "path": "core/analysis/validate-system-health.md", "version": "1.0.0", "complexity": 4 }
           ]
         },
         "generation": {
           "description": "Generación de código y boilerplate",
           "skills": [
-            { "name": "generate-boilerplate", "path": "core/generation/generate-boilerplate.md", "version": "1.0.0", "complexity": 4 },
+            { "name": "generate-boilerplate", "path": "core/generation/generate-boilerplate.md", "version": "1.1.0", "complexity": 4 },
             { "name": "generate-unit-tests", "path": "core/generation/generate-unit-tests.md", "version": "1.0.0", "complexity": 5 }
           ]
         },
         "refactoring": {
           "description": "Refactorización y optimización de código",
           "skills": [
-            { "name": "extract-method", "path": "core/refactoring/extract-method.md", "version": "1.0.0", "complexity": 5 }
+            { "name": "extract-method", "path": "core/refactoring/extract-method.md", "version": "1.1.0", "complexity": 5 }
           ]
         },
         "documentation": {
           "description": "Generación automática de documentación",
           "skills": [
-            { "name": "generate-readme", "path": "core/documentation/generate-readme.md", "version": "1.0.0", "complexity": 3 }
+            { "name": "generate-readme", "path": "core/documentation/generate-readme.md", "version": "1.1.0", "complexity": 3 }
           ]
         },
         "integration": {
