@@ -5,9 +5,36 @@ Todos los cambios notables en el sistema de skills serán documentados en este a
 El formato está basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.0.0/),
 y este proyecto adhiere a [Semantic Versioning](https://semver.org/lang/es/).
 
-## [1.1.0] - 2026-01-07
+## [1.6.0] - 2026-01-07
 
 ### Añadido
+
+#### Nuevas Skills de Integración (Notion)
+
+- **sync-notion-skills** (core/integration): Sincronización bidireccional de documentación.
+- **log-development-activity**: Registro automático en bases de datos Notion.
+- **create-notion-issue**: Creación rápida de tickets desde el entorno.
+- **query-notion-knowledge**: Búsqueda semántica en base de conocimiento.
+
+#### Nuevas Skills Core y Domain
+
+- **validate-system-health** (core/analysis): Herramienta de autodiagnóstico.
+- **generate-unit-tests** (core/generation): Scaffolding de tests DUnit.
+- **implement-design-pattern** (domain/delphi): Implementación de patrones GoF.
+- **debug-memory-leak** (domain/delphi): Guías de debugging avanzado.
+- **generate-crud-forms** (domain/database): Generación de ABMs completos.
+
+#### Workflows Avanzados
+
+- **full-feature-development** (workflows/development): Ciclo completo de desarrollo.
+
+### Cambiado
+
+- **Estructura**: Reorganización de carpetas para incluir `core/integration`.
+- **Registro**: Actualización masiva de metadatos (27 skills totales).
+- **Documentación**: Sincronización completa de INDEX y STRUCTURE.
+
+## [1.1.0] - 2026-01-07
 
 #### Nuevas Skills Core
 

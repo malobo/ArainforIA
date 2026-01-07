@@ -1,21 +1,23 @@
-# Skills de Testing
+# Workflows de Testing
 
-Esta carpeta contiene workflows para testing y QA.
+Este directorio contiene los flujos de trabajo relacionados con la ejecución de pruebas automatizadas, validación de calidad y aseguramiento del funcionamiento correcto del sistema.
 
 ## Workflows Disponibles
 
-*Pendiente de añadir workflows*
+### [run-test-suite](./run-test-suite.md) 🔨 (v0.1.0)
 
-## Tipos de Testing
+Ejecuta la suite de pruebas unitarias del proyecto. Actualmente en fase de planificación y desarrollo inicial.
 
-- **Unit Testing**: Pruebas unitarias automatizadas
-- **Integration Testing**: Pruebas de integración
-- **E2E Testing**: Pruebas end-to-end
-- **Performance Testing**: Pruebas de rendimiento
-- **Security Testing**: Pruebas de seguridad
+## Objetivos
 
-## Crear Nuevo Workflow de Testing
+- Estandarizar la ejecución de pruebas (DUnit / DUnitX).
+- Integrar la generación de reportes de cobertura.
+- Validar builds antes del despliegue.
 
-Usa la plantilla: `../../templates/workflow-template.md`
+## Estructura Recomendada
 
-Categoría: `workflows/testing`
+Para que estos workflows funcionen, se recomienda la siguiente estructura en el proyecto Delphi:
+
+- `/Tests`: Directorio raíz de pruebas.
+- `/Tests/Lib`: Librerías de testing (DUnit/DUnitX).
+- `TestProject.dpr`: Proyecto de consola que ejecuta todos los tests.
