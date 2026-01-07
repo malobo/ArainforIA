@@ -43,8 +43,13 @@ Cubre: Criptografía, Logging, PDF, JSON y Templating.
    - Usa `mormot.core.mustache` para separar lógica Delphi de presentación (Emails, HTMLs).
    - Genera el contenido dinámico inyectando un JSON/Object al renderizador Mustache.
 
-4. **JSON & Core**:
-   - Para serialización masiva, `mormot.core.json` sustituye a `System.JSON`.
+4. **Cliente HTTP & REST (Sincronización Híbrida)**:
+   - ⚡ **IMPORTANTE**: Para conectar con la Nube (PHP), prefiere `mormot.net.client` o `mormot.rest.client` sobre los componentes nativos de Delphi. Son thread-safe, más rápidos y manejan mejor los timeouts/errores.
+   - Soporta HTTPS nativo y validación de certificados.
+
+5. **JSON & Core**:
+   - Para serialización masiva, `mormot.core.json` sustituye a `System.JSON`. Es 10x-100x más rápido.
+   - Usa `TDocVariant` para manipular JSON dinámicos sin crear clases.
 </instruction>
 
 <examples>
@@ -83,6 +88,26 @@ Assistant:
 uses mormot.core.log;
 begin
   TSynLog.Add.LogError('Error crítico en base de datos: %', [ErrorMsg]);
+end;
+```
+
+User: "¿Cómo envío un JSON a la API PHP?"
+Assistant:
+
+```delphi
+uses mormot.net.client, mormot.core.json;
+var
+  Http: TWinHttp;
+  Res: TWinHttpResult;
+begin
+  Http := TWinHttp.Create;
+  try
+    Res := Http.Post('https://mi-api.com/pedidos', '{"id": 1, "cliente": "Juan"}', 'application/json');
+    if Res.Status = 200 then
+      ShowMessage('Enviado OK: ' + Res.Body);
+  finally
+    Http.Free;
+  end;
 end;
 ```
 
