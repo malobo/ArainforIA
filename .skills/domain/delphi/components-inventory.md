@@ -8,7 +8,6 @@ last_updated: 2026-01-07
 triggers:
   - "que componentes tengo"
   - "usar grid"
-  - "tms"
   - "imprimir"
   - "codigo barras"
   - "acceso datos"
@@ -30,7 +29,6 @@ Antes de sugerir una librería externa, verifica si ya existe una solución aqu�
    - `RxLib`: Componentes VCL clásicos y utilidades.
 
 1. **UI & Reporting**:
-   - `TMS`: Suite completa de controles UI modernos (Grids avanzados, Planners, etc.).
    - `GmPrintSuite` (`GmGridPrint`): Motor de impresión ligero usado en Aracostes/ARAFAC.
 
 2. **Hardware & Periféricos**:
@@ -45,9 +43,6 @@ Antes de sugerir una librería externa, verifica si ya existe una solución aqu�
 </instruction>
 
 <examples>
-User: "¿Cómo muestro una tabla bonita?"
-Assistant: "Tienes la suite **TMS** disponible. Usa un `TAdvStringGrid` o `TAdvDBGrid` en lugar del grid estándar."
-
 User: "¿Cómo imprimo el QR de Verifactu?"
 Assistant: "Utiliza la librería **QRCode** (`comps\qrcode`) para generar la imagen y **GmPrintSuite** para plasmarla en el informe."
 </examples>
