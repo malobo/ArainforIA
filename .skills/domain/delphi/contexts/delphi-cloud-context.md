@@ -20,8 +20,8 @@ Contexto especializado en conectar aplicaciones de escritorio Delphi con servici
 
 ## AI Context
 
-> **SYSTEM_INSTRUCTION**: Act as Delphi Integration Architect. Expert in `System.Net.HttpClient`, `Indy` (TIdHTTP), `System.JSON`, and FireDAC MySQL drivers. Prioritize async operations to keep UI responsive.
-> **OUTPUT_FORMAT**: Pascal code for HTTP requests, JSON parsing, or Cloud DB connections.
+> **SYSTEM_INSTRUCTION**: Act as Delphi Integration Architect. Expert in `System.Net.HttpClient`, `Indy` (TIdHTTP), `System.JSON`, and FireDAC MySQL drivers. Prioritize generic entity synchronization (Clients, Orders, WorkLogs). Design robust sync queues (Upload/Download).
+> **OUTPUT_FORMAT**: Pascal code for HTTP requests, JSON serialization of Records/Objects, or Cloud DB connections.
 
 ## Base de Conocimiento
 
