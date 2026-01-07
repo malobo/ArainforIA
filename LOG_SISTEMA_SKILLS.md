@@ -66,4 +66,18 @@
   - **Templating:** Mustache para separar lógica de vista.
 
 ---
-**Estado Final:** El sistema es autónomo, robusto, y ahora **experto en arquitectura moderna** (mORMot 2 + Clean Code).
+**Estado Final Fase 3:** El sistema es autónomo, robusto, y ahora **experto en arquitectura moderna** (mORMot 2 + Clean Code).
+
+## 4. Fase de Expansión Híbrida y Limpieza (07-01-2026)
+
+**Objetivo:** Adaptar el sistema para desarrollo híbrido (Delphi+Cloud) y refinar el inventario de herramientas.
+
+- **Nuevas Skills:**
+  - `domain/hybrid/hybrid-sync.md`: Estrategia de sincronización Delphi <-> PHP/MySQL.
+  - `domain/delphi/components-inventory.md`: Inventario de terceros (mORMot, Zeos, etc.).
+- **Mejoras:**
+  - `core/mormot.md`: Ampliado con `mormot.net.client` (HTTP/REST) y optimización JSON.
+  - **Limpieza**: Eliminadas dependencias de componentes de pago (TMS) para garantizar portabilidad.
+- **Infraestructura:**
+  - Soporte de subcategorías en indexador (`generate_index.py`).
+  - Sincronización completa con `ArainforIA`.
