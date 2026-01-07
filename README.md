@@ -33,7 +33,7 @@ El núcleo de este repositorio es el directorio `.skills/`, un framework modular
 
 ## 📂 Proyectos Relacionados
 
-Este sistema da soporte al desarrollo de aplicaciones de gestión en Delphi
+Este sistema da soporte al desarrollo de aplicaciones de gestión en Delphi.
 
 ## 🚀 Cómo usar este repositorio
 
