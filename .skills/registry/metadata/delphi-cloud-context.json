@@ -1,0 +1,10 @@
+{
+  "name": "delphi-cloud-context",
+  "version": "1.1.0",
+  "category": "domain/delphi",
+  "complexity": 1,
+  "estimated_tokens": "600-900",
+  "type": "context",
+  "path": "domain/delphi/contexts/delphi-cloud-context.md",
+  "tags": ["delphi", "cloud", "rest", "json", "http", "indy", "firedac-mysql"]
+}

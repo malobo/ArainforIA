@@ -33,13 +33,16 @@ Para optimizar el uso de tokens, el conocimiento se ha dividido en los siguiente
     *   *Uso*: Diseño de interfaces, manejo de eventos visuales, reportes.
 3.  **`delphi-db-context`**: Persistencia, BDE/Paradox, FireDAC, SQL, Repositorios.
     *   *Uso*: Consultas, transacciones, diseño de base de datos.
-4.  **`delphi-verifactu-context`**: Normativa RD 1007/2023, Hashing, QR, XML AEAT.
+4.  **`delphi-cloud-context`**: Integración HTTP, REST API, JSON, FireDAC MySQL.
+    *   *Uso*: Conexión con APIs PHP, subida de datos a la nube, consumo de servicios web.
+5.  **`delphi-verifactu-context`**: Normativa RD 1007/2023, Hashing, QR, XML AEAT.
     *   *Uso*: Cumplimiento legal, integridad de facturas, firma digital.
 
 ## Activación Inteligente
 
 - Si trabajas con **UI**: Carga `delphi-vcl-context`.
-- Si trabajas con **Datos**: Carga `delphi-db-context`.
+- Si trabajas con **Datos Locales**: Carga `delphi-db-context`.
+- Si trabajas con **Nube/API**: Carga `delphi-cloud-context`.
 - Si trabajas con **Lógica Core**: Carga `delphi-core-context`.
 - Si trabajas en **Verifactu**: Carga `delphi-verifactu-context`.
 

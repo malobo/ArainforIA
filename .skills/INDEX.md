@@ -211,6 +211,17 @@ template: "standard"
 
 ---
 
+### Domain - Web
+
+#### 7. php-mysql-context ✅
+
+**Ruta**: `domain/web/contexts/php-mysql-context.md`  
+**Versión**: 1.1.0 | **Complejidad**: 1/10 | **Tokens**: 600-900
+
+**Descripción**: Contexto fullstack para desarrollo de APIs PHP y bases de datos MySQL/MariaDB.
+
+---
+
 ### Domain - Verifactu
 
 #### 7. delphi-verifactu-context ✅

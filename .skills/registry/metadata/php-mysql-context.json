@@ -1,0 +1,10 @@
+{
+  "name": "php-mysql-context",
+  "version": "1.1.0",
+  "category": "domain/web",
+  "complexity": 1,
+  "estimated_tokens": "600-900",
+  "type": "context",
+  "path": "domain/web/contexts/php-mysql-context.md",
+  "tags": ["web", "php", "mysql", "html", "css", "api"]
+}
