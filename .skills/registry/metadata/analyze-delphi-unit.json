@@ -1,0 +1,54 @@
+{
+    "id": "analyze-delphi-unit",
+    "name": "Analizar Unidad Delphi",
+    "version": "1.0.0",
+    "category": "domain/delphi",
+    "path": "domain/delphi/analyze-delphi-unit.md",
+    "tags": [
+        "delphi",
+        "analysis",
+        "code-review"
+    ],
+    "complexity": 4,
+    "estimated_tokens": "800-1200",
+    "author": "Sistema",
+    "created": "2026-01-07",
+    "updated": "2026-01-07",
+    "status": "stable",
+    "description": "Analiza una unidad (.pas) de Delphi para identificar estructura, dependencias, complejidad y posibles mejoras.",
+    "inputs": [
+        {
+            "name": "unit_path",
+            "type": "string",
+            "required": true
+        },
+        {
+            "name": "depth",
+            "type": "string",
+            "required": false,
+            "default": "detailed"
+        },
+        {
+            "name": "focus",
+            "type": "array",
+            "required": false
+        }
+    ],
+    "outputs": [
+        {
+            "name": "analysis_report",
+            "type": "markdown"
+        },
+        {
+            "name": "metrics",
+            "type": "json"
+        },
+        {
+            "name": "recommendations",
+            "type": "array"
+        }
+    ],
+    "dependencies": [],
+    "usage_count": 0,
+    "last_used": null
+}

@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Skill Metadata Schema",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "category": {
+      "type": "string"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "complexity": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 10
+    },
+    "ai_context": {
+      "type": "object",
+      "required": ["system_instruction", "output_format"],
+      "properties": {
+        "system_instruction": { "type": "string" },
+        "output_format": { "type": "string" }
+      }
+    }
+  },
+  "required": ["name", "version", "category", "complexity"]
+}

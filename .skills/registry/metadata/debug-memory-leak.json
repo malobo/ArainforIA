@@ -1,0 +1,23 @@
+{
+    "name": "debug-memory-leak",
+    "version": "1.0.0",
+    "category": "domain/delphi",
+    "complexity": 7,
+    "tokens_estimate": {
+        "min": 1000,
+        "max": 1500
+    },
+    "tags": [
+        "debugging",
+        "memory",
+        "leak",
+        "performance",
+        "optimization"
+    ],
+    "created": "2026-01-07",
+    "updated": "2026-01-07",
+    "author": "system",
+    "status": "active",
+    "requires": [],
+    "dependencies": []
+}

@@ -1,0 +1,24 @@
+{
+    "name": "generate-crud-forms",
+    "version": "1.0.0",
+    "category": "domain/database",
+    "complexity": 6,
+    "tokens_estimate": {
+        "min": 1000,
+        "max": 1500
+    },
+    "tags": [
+        "crud",
+        "forms",
+        "database",
+        "automation",
+        "paradox",
+        "ui"
+    ],
+    "created": "2026-01-07",
+    "updated": "2026-01-07",
+    "author": "system",
+    "status": "active",
+    "requires": [],
+    "dependencies": []
+}

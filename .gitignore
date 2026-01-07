@@ -1,0 +1,13 @@
+# Repositorios del proyecto
+ARAVF.01/
+FACARAVF/
+GESFAC/
+
+# Archivos temporales y compilación
+*.dcu
+*.exe
+*.res
+*.dsk
+*.~*
+__history/
+C:\Users\MANUEL JOSE.LOPEZ\.gemini\tmp/

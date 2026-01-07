@@ -1,0 +1,62 @@
+{
+    "id": "generate-readme",
+    "name": "Generar README",
+    "version": "1.0.0",
+    "category": "core/documentation",
+    "path": "core/documentation/generate-readme.md",
+    "tags": [
+        "documentation",
+        "readme",
+        "markdown",
+        "auto-doc"
+    ],
+    "complexity": 3,
+    "estimated_tokens": "400-600",
+    "author": "Sistema",
+    "created": "2026-01-07",
+    "updated": "2026-01-07",
+    "status": "stable",
+    "description": "Genera README.md profesional para proyectos analizando su estructura.",
+    "inputs": [
+        {
+            "name": "project_path",
+            "type": "string",
+            "required": true
+        },
+        {
+            "name": "template",
+            "type": "string",
+            "required": false,
+            "default": "standard"
+        },
+        {
+            "name": "language",
+            "type": "string",
+            "required": false,
+            "default": "es"
+        },
+        {
+            "name": "badges",
+            "type": "boolean",
+            "required": false,
+            "default": true
+        }
+    ],
+    "outputs": [
+        {
+            "name": "readme_content",
+            "type": "string"
+        },
+        {
+            "name": "detected_info",
+            "type": "object"
+        },
+        {
+            "name": "suggestions",
+            "type": "array"
+        }
+    ],
+    "dependencies": [],
+    "usage_count": 0,
+    "last_used": null
+}

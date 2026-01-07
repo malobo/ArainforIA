@@ -1,0 +1,65 @@
+{
+    "id": "extract-method",
+    "name": "Extraer Método",
+    "version": "1.0.0",
+    "category": "core/refactoring",
+    "path": "core/refactoring/extract-method.md",
+    "tags": [
+        "refactoring",
+        "methods",
+        "clean-code",
+        "solid"
+    ],
+    "complexity": 5,
+    "estimated_tokens": "600-900",
+    "author": "Sistema",
+    "created": "2026-01-07",
+    "updated": "2026-01-07",
+    "status": "stable",
+    "description": "Refactoriza código extrayendo un bloque a un nuevo método.",
+    "inputs": [
+        {
+            "name": "source_code",
+            "type": "string",
+            "required": true
+        },
+        {
+            "name": "selection_start",
+            "type": "integer",
+            "required": true
+        },
+        {
+            "name": "selection_end",
+            "type": "integer",
+            "required": true
+        },
+        {
+            "name": "new_method_name",
+            "type": "string",
+            "required": true
+        },
+        {
+            "name": "target_visibility",
+            "type": "string",
+            "required": false,
+            "default": "private"
+        }
+    ],
+    "outputs": [
+        {
+            "name": "refactored_code",
+            "type": "string"
+        },
+        {
+            "name": "new_method",
+            "type": "string"
+        },
+        {
+            "name": "parameters",
+            "type": "array"
+        }
+    ],
+    "dependencies": [],
+    "usage_count": 0,
+    "last_used": null
+}

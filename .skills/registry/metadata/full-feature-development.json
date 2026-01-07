@@ -1,0 +1,29 @@
+{
+    "name": "full-feature-development",
+    "version": "1.0.0",
+    "category": "workflows/development",
+    "complexity": 9,
+    "tokens_estimate": {
+        "min": 2000,
+        "max": 3500
+    },
+    "duration": "60-120 min",
+    "tags": [
+        "workflow",
+        "development",
+        "agile",
+        "full-cycle",
+        "feature"
+    ],
+    "created": "2026-01-07",
+    "updated": "2026-01-07",
+    "author": "system",
+    "status": "active",
+    "requires": [],
+    "dependencies": [
+        "analyze-delphi-unit",
+        "generate-boilerplate",
+        "generate-unit-tests",
+        "implement-design-pattern"
+    ]
+}

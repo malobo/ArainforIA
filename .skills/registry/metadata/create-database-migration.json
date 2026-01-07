@@ -1,0 +1,64 @@
+{
+    "id": "create-database-migration",
+    "name": "Crear Migración de Base de Datos",
+    "version": "1.0.0",
+    "category": "domain/database",
+    "path": "domain/database/create-database-migration.md",
+    "tags": [
+        "database",
+        "migration",
+        "paradox",
+        "bde"
+    ],
+    "complexity": 6,
+    "estimated_tokens": "600-1000",
+    "author": "Sistema",
+    "created": "2026-01-07",
+    "updated": "2026-01-07",
+    "status": "stable",
+    "description": "Genera scripts de migración para bases de datos Paradox con rollback.",
+    "inputs": [
+        {
+            "name": "migration_name",
+            "type": "string",
+            "required": true
+        },
+        {
+            "name": "target_table",
+            "type": "string",
+            "required": true
+        },
+        {
+            "name": "changes",
+            "type": "array",
+            "required": true
+        },
+        {
+            "name": "generate_rollback",
+            "type": "boolean",
+            "required": false,
+            "default": true
+        }
+    ],
+    "outputs": [
+        {
+            "name": "migration_script",
+            "type": "sql"
+        },
+        {
+            "name": "rollback_script",
+            "type": "sql"
+        },
+        {
+            "name": "documentation",
+            "type": "markdown"
+        },
+        {
+            "name": "version_number",
+            "type": "string"
+        }
+    ],
+    "dependencies": [],
+    "usage_count": 0,
+    "last_used": null
+}

@@ -1,0 +1,56 @@
+{
+    "id": "validate-skill-format",
+    "name": "Validar Formato de Skill",
+    "version": "1.0.0",
+    "category": "core/analysis",
+    "path": "core/analysis/validate-skill-format.md",
+    "tags": [
+        "validation",
+        "skills",
+        "quality",
+        "meta"
+    ],
+    "complexity": 3,
+    "estimated_tokens": "400-600",
+    "author": "Sistema",
+    "created": "2026-01-07",
+    "updated": "2026-01-07",
+    "status": "stable",
+    "description": "Valida que un archivo de skill sigue el formato estándar del sistema.",
+    "inputs": [
+        {
+            "name": "skill_path",
+            "type": "string",
+            "required": true
+        },
+        {
+            "name": "strict_mode",
+            "type": "boolean",
+            "required": false,
+            "default": false
+        },
+        {
+            "name": "auto_fix",
+            "type": "boolean",
+            "required": false,
+            "default": false
+        }
+    ],
+    "outputs": [
+        {
+            "name": "validation_result",
+            "type": "object"
+        },
+        {
+            "name": "issues",
+            "type": "array"
+        },
+        {
+            "name": "suggestions",
+            "type": "array"
+        }
+    ],
+    "dependencies": [],
+    "usage_count": 0,
+    "last_used": null
+}

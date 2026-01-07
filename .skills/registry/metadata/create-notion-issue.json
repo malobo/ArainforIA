@@ -1,0 +1,24 @@
+{
+    "id": "create-notion-issue",
+    "name": "Crear Issue/Bug en Notion",
+    "version": "1.0.0",
+    "category": "core/integration",
+    "path": "core/integration/create-notion-issue.md",
+    "type": "automation",
+    "tags": [
+        "notion",
+        "bugs",
+        "issues",
+        "tracking",
+        "quality"
+    ],
+    "complexity": 2,
+    "estimated_tokens": "300-500",
+    "requires_mcp": true,
+    "author": "Sistema",
+    "created": "2026-01-07",
+    "status": "stable",
+    "description": "Crea rápidamente issues, bugs o tareas en Notion desde el IDE.",
+    "usage_count": 0,
+    "last_used": null
+}

@@ -1,0 +1,76 @@
+{
+    "id": "deploy-verifactu-update",
+    "name": "Desplegar Actualización Verifactu",
+    "version": "1.0.0",
+    "category": "workflows/deployment",
+    "path": "workflows/deployment/deploy-verifactu-update.md",
+    "tags": [
+        "deployment",
+        "verifactu",
+        "production"
+    ],
+    "complexity": 8,
+    "estimated_tokens": "2000-3000",
+    "estimated_duration": "30-45 minutes",
+    "author": "Sistema",
+    "created": "2026-01-07",
+    "updated": "2026-01-07",
+    "status": "stable",
+    "type": "workflow",
+    "description": "Workflow completo de despliegue de actualizaciones Verifactu.",
+    "inputs": [
+        {
+            "name": "version",
+            "type": "string",
+            "required": true
+        },
+        {
+            "name": "environment",
+            "type": "string",
+            "required": true
+        },
+        {
+            "name": "executable_path",
+            "type": "string",
+            "required": true
+        },
+        {
+            "name": "migration_scripts",
+            "type": "array",
+            "required": true
+        },
+        {
+            "name": "skip_backup",
+            "type": "boolean",
+            "required": false,
+            "default": false
+        }
+    ],
+    "outputs": [
+        {
+            "name": "deployment_report",
+            "type": "markdown"
+        },
+        {
+            "name": "rollback_package",
+            "type": "zip"
+        },
+        {
+            "name": "validation_results",
+            "type": "json"
+        },
+        {
+            "name": "deployment_log",
+            "type": "txt"
+        }
+    ],
+    "phases": 9,
+    "rollback_available": true,
+    "skills_used": [
+        "domain/database/backup-database",
+        "domain/database/create-database-migration",
+        "domain/verifactu/validate-verifactu-implementation"
+    ],
+    "usage_count": 0,
+    "last_used": null
+}

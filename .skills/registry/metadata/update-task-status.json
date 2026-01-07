@@ -1,0 +1,24 @@
+{
+    "id": "update-task-status",
+    "name": "Actualizar Estado de Tarea en Notion",
+    "version": "1.0.0",
+    "category": "core/integration",
+    "path": "core/integration/update-task-status.md",
+    "type": "automation",
+    "tags": [
+        "notion",
+        "tasks",
+        "status",
+        "project-management",
+        "workflow"
+    ],
+    "complexity": 2,
+    "estimated_tokens": "300-500",
+    "requires_mcp": true,
+    "author": "Sistema",
+    "created": "2026-01-07",
+    "status": "stable",
+    "description": "Actualiza el estado de tareas en Notion directamente desde el IDE.",
+    "usage_count": 0,
+    "last_used": null
+}

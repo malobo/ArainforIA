@@ -1,0 +1,33 @@
+{
+    "id": "sync-notion-skills",
+    "name": "Sincronización de Skills con Notion",
+    "version": "1.0.0",
+    "category": "core/integration",
+    "path": "core/integration/sync-notion-skills.md",
+    "type": "automation",
+    "tags": [
+        "notion",
+        "sync",
+        "integration",
+        "mcp",
+        "automation",
+        "dashboard",
+        "tracking"
+    ],
+    "complexity": 5,
+    "estimated_tokens": "800-1200",
+    "author": "Sistema",
+    "created": "2026-01-07",
+    "updated": "2026-01-07",
+    "status": "stable",
+    "description": "Sincroniza el sistema de skills con Notion, crea dashboard, trackea uso y mantiene documentación centralizada.",
+    "notion_page_id": "2e008dcb-066b-8127-8e09-f1a1d6548259",
+    "actions": [
+        "create-dashboard",
+        "sync",
+        "log"
+    ],
+    "requires_mcp": true,
+    "usage_count": 0,
+    "last_used": null
+}

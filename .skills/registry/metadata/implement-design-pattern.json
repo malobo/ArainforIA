@@ -1,0 +1,23 @@
+{
+    "name": "implement-design-pattern",
+    "version": "1.0.0",
+    "category": "domain/delphi",
+    "complexity": 5,
+    "tokens_estimate": {
+        "min": 900,
+        "max": 1400
+    },
+    "tags": [
+        "patterns",
+        "design",
+        "architecture",
+        "solid",
+        "clean-code"
+    ],
+    "created": "2026-01-07",
+    "updated": "2026-01-07",
+    "author": "system",
+    "status": "active",
+    "requires": [],
+    "dependencies": []
+}

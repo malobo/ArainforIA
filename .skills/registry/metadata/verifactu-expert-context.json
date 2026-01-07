@@ -1,0 +1,27 @@
+{
+    "name": "verifactu-expert-context",
+    "version": "1.0.0",
+    "category": "domain/verifactu",
+    "complexity": 8,
+    "tokens_estimate": {
+        "min": 1500,
+        "max": 2500
+    },
+    "type": "context",
+    "activation": "auto",
+    "tags": [
+        "verifactu",
+        "aeat",
+        "facturacion",
+        "legal",
+        "compliance",
+        "hash",
+        "qr"
+    ],
+    "created": "2026-01-07",
+    "updated": "2026-01-07",
+    "author": "system",
+    "status": "active",
+    "requires": [],
+    "dependencies": []
+}

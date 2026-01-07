@@ -1,0 +1,59 @@
+{
+    "id": "validate-verifactu-implementation",
+    "name": "Validar Implementación Verifactu",
+    "version": "1.0.0",
+    "category": "domain/verifactu",
+    "path": "domain/verifactu/validate-verifactu-implementation.md",
+    "tags": [
+        "verifactu",
+        "validation",
+        "compliance"
+    ],
+    "complexity": 7,
+    "estimated_tokens": "1000-1500",
+    "author": "Sistema",
+    "created": "2026-01-07",
+    "updated": "2026-01-07",
+    "status": "stable",
+    "description": "Valida cumplimiento de normativa Verifactu (RD 1007/2023).",
+    "inputs": [
+        {
+            "name": "project_path",
+            "type": "string",
+            "required": true
+        },
+        {
+            "name": "validation_level",
+            "type": "string",
+            "required": false,
+            "default": "standard"
+        },
+        {
+            "name": "generate_report",
+            "type": "boolean",
+            "required": false,
+            "default": true
+        }
+    ],
+    "outputs": [
+        {
+            "name": "validation_report",
+            "type": "markdown"
+        },
+        {
+            "name": "compliance_score",
+            "type": "number"
+        },
+        {
+            "name": "action_items",
+            "type": "array"
+        },
+        {
+            "name": "certificate",
+            "type": "pdf"
+        }
+    ],
+    "dependencies": [],
+    "usage_count": 0,
+    "last_used": null
+}

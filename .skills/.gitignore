@@ -1,0 +1,29 @@
+# Archivos temporales
+*.tmp
+*.bak
+*.swp
+*~
+
+# Logs
+*.log
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de editor
+.vscode/
+.idea/
+*.sublime-*
+
+# Archivos de backup
+backup_*/
+*.backup
+
+# Archivos de prueba temporal
+test_*.md
+draft_*.md
+
+# Archivos de caché
+.cache/
+__pycache__/

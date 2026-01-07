@@ -1,0 +1,618 @@
+{
+  "version": "1.5.0",
+  "last_updated": "2026-01-07T12:28:00+01:00",
+  "total_skills": 23,
+  "categories": {
+    "core": {
+      "description": "Skills fundamentales reutilizables en cualquier proyecto",
+      "total": 13,
+      "subcategories": {
+        "analysis": {
+          "description": "Análisis de código, arquitectura y dependencias",
+          "skills": [
+            {
+              "name": "validate-skill-format",
+              "path": "core/analysis/validate-skill-format.md",
+              "version": "1.0.0",
+              "complexity": 3,
+              "estimated_tokens": "400-600",
+              "tags": [
+                "validation",
+                "skills",
+                "quality",
+                "meta"
+              ]
+            },
+            {
+              "name": "sync-skills-registry",
+              "path": "core/analysis/sync-skills-registry.md",
+              "version": "1.0.0",
+              "complexity": 2,
+              "estimated_tokens": "200-400",
+              "tags": [
+                "meta",
+                "sync",
+                "automation",
+                "maintenance"
+              ]
+            },
+            {
+              "name": "validate-system-health",
+              "path": "core/analysis/validate-system-health.md",
+              "version": "1.0.0",
+              "complexity": 4,
+              "estimated_tokens": "800-1200",
+              "tags": [
+                "validation",
+                "health-check",
+                "diagnostics",
+                "maintenance",
+                "system"
+              ]
+            }
+          ]
+        },
+        "generation": {
+          "description": "Generación de código y boilerplate",
+          "skills": [
+            {
+              "name": "generate-boilerplate",
+              "path": "core/generation/generate-boilerplate.md",
+              "version": "1.0.0",
+              "complexity": 4,
+              "estimated_tokens": "500-800",
+              "tags": [
+                "generation",
+                "boilerplate",
+                "code",
+                "templates"
+              ]
+            },
+            {
+              "name": "generate-unit-tests",
+              "path": "core/generation/generate-unit-tests.md",
+              "version": "1.0.0",
+              "complexity": 5,
+              "estimated_tokens": "800-1200",
+              "tags": [
+                "testing",
+                "dunit",
+                "dunitx",
+                "quality",
+                "automation"
+              ]
+            }
+          ]
+        },
+        "refactoring": {
+          "description": "Refactorización y optimización de código",
+          "skills": [
+            {
+              "name": "extract-method",
+              "path": "core/refactoring/extract-method.md",
+              "version": "1.0.0",
+              "complexity": 5,
+              "estimated_tokens": "600-900",
+              "tags": [
+                "refactoring",
+                "methods",
+                "clean-code",
+                "solid"
+              ]
+            }
+          ]
+        },
+        "documentation": {
+          "description": "Generación automática de documentación",
+          "skills": [
+            {
+              "name": "generate-readme",
+              "path": "core/documentation/generate-readme.md",
+              "version": "1.0.0",
+              "complexity": 3,
+              "estimated_tokens": "400-600",
+              "tags": [
+                "documentation",
+                "readme",
+                "markdown",
+                "auto-doc"
+              ]
+            }
+          ]
+        },
+        "integration": {
+          "description": "Integración con servicios externos",
+          "skills": [
+            {
+              "name": "sync-notion-skills",
+              "path": "core/integration/sync-notion-skills.md",
+              "version": "1.0.0",
+              "complexity": 5,
+              "estimated_tokens": "800-1200",
+              "tags": [
+                "notion",
+                "sync",
+                "mcp",
+                "automation"
+              ]
+            },
+            {
+              "name": "log-development-activity",
+              "path": "core/integration/log-development-activity.md",
+              "version": "1.0.0",
+              "complexity": 3,
+              "estimated_tokens": "400-600",
+              "tags": [
+                "notion",
+                "logging",
+                "tracking",
+                "history"
+              ]
+            },
+            {
+              "name": "create-notion-issue",
+              "path": "core/integration/create-notion-issue.md",
+              "version": "1.0.0",
+              "complexity": 2,
+              "estimated_tokens": "300-500",
+              "tags": [
+                "notion",
+                "bugs",
+                "issues",
+                "tracking"
+              ]
+            },
+            {
+              "name": "sync-project-docs",
+              "path": "core/integration/sync-project-docs.md",
+              "version": "1.0.0",
+              "complexity": 4,
+              "estimated_tokens": "600-900",
+              "tags": [
+                "notion",
+                "documentation",
+                "sync",
+                "auto-doc"
+              ]
+            },
+            {
+              "name": "query-notion-knowledge",
+              "path": "core/integration/query-notion-knowledge.md",
+              "version": "1.0.0",
+              "complexity": 2,
+              "estimated_tokens": "300-500",
+              "tags": [
+                "notion",
+                "search",
+                "knowledge",
+                "rag"
+              ]
+            },
+            {
+              "name": "update-task-status",
+              "path": "core/integration/update-task-status.md",
+              "version": "1.0.0",
+              "complexity": 2,
+              "estimated_tokens": "300-500",
+              "tags": [
+                "notion",
+                "tasks",
+                "status",
+                "workflow"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "domain": {
+      "description": "Skills específicas del dominio del proyecto",
+      "total": 8,
+      "subcategories": {
+        "delphi": {
+          "description": "Skills específicas para desarrollo en Delphi/Pascal",
+          "skills": [
+            {
+              "name": "analyze-delphi-unit",
+              "path": "domain/delphi/analyze-delphi-unit.md",
+              "version": "1.0.0",
+              "complexity": 4,
+              "estimated_tokens": "800-1200",
+              "tags": [
+                "delphi",
+                "analysis",
+                "code-review"
+              ]
+            },
+            {
+              "name": "delphi-expert-context",
+              "path": "domain/delphi/delphi-expert-context.md",
+              "version": "1.0.0",
+              "type": "context",
+              "complexity": 1,
+              "estimated_tokens": "800-1200",
+              "activation": "auto",
+              "tags": [
+                "delphi",
+                "expert",
+                "context",
+                "object-pascal",
+                "vcl",
+                "knowledge"
+              ]
+            },
+            {
+              "name": "implement-design-pattern",
+              "path": "domain/delphi/implement-design-pattern.md",
+              "version": "1.0.0",
+              "complexity": 5,
+              "estimated_tokens": "900-1400",
+              "tags": [
+                "patterns",
+                "design",
+                "architecture",
+                "solid",
+                "clean-code"
+              ]
+            },
+            {
+              "name": "debug-memory-leak",
+              "path": "domain/delphi/debug-memory-leak.md",
+              "version": "1.0.0",
+              "complexity": 7,
+              "estimated_tokens": "1000-1500",
+              "tags": [
+                "debugging",
+                "memory",
+                "leak",
+                "performance",
+                "optimization"
+              ]
+            }
+          ]
+        },
+        "database": {
+          "description": "Gestión de bases de datos y migraciones",
+          "skills": [
+            {
+              "name": "create-database-migration",
+              "path": "domain/database/create-database-migration.md",
+              "version": "1.0.0",
+              "complexity": 6,
+              "estimated_tokens": "600-1000",
+              "tags": [
+                "database",
+                "migration",
+                "paradox",
+                "bde"
+              ]
+            },
+            {
+              "name": "generate-crud-forms",
+              "path": "domain/database/generate-crud-forms.md",
+              "version": "1.0.0",
+              "complexity": 6,
+              "estimated_tokens": "1000-1500",
+              "tags": [
+                "crud",
+                "forms",
+                "database",
+                "automation",
+                "paradox",
+                "ui"
+              ]
+            }
+          ]
+        },
+        "verifactu": {
+          "description": "Implementación de normativa Verifactu",
+          "skills": [
+            {
+              "name": "verifactu-expert-context",
+              "path": "domain/verifactu/verifactu-expert-context.md",
+              "version": "1.0.0",
+              "type": "context",
+              "complexity": 8,
+              "estimated_tokens": "1500-2500",
+              "activation": "auto",
+              "tags": [
+                "verifactu",
+                "aeat",
+                "facturacion",
+                "legal",
+                "compliance",
+                "hash",
+                "qr"
+              ]
+            },
+            {
+              "name": "validate-verifactu-implementation",
+              "path": "domain/verifactu/validate-verifactu-implementation.md",
+              "version": "1.0.0",
+              "complexity": 7,
+              "estimated_tokens": "1000-1500",
+              "tags": [
+                "verifactu",
+                "validation",
+                "compliance"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "workflows": {
+      "description": "Flujos de trabajo complejos que combinan múltiples skills",
+      "total": 2,
+      "subcategories": {
+        "development": {
+          "description": "Flujos de desarrollo de funcionalidades",
+          "skills": [
+            {
+              "name": "full-feature-development",
+              "path": "workflows/development/full-feature-development.md",
+              "version": "1.0.0",
+              "complexity": 9,
+              "estimated_tokens": "2000-3500",
+              "estimated_duration": "60-120 minutes",
+              "tags": [
+                "workflow",
+                "development",
+                "agile",
+                "full-cycle",
+                "feature"
+              ],
+              "dependencies": [
+                "analyze-delphi-unit",
+                "generate-boilerplate",
+                "generate-unit-tests",
+                "implement-design-pattern"
+              ]
+            }
+          ]
+        },
+        "deployment": {
+          "description": "Despliegue y distribución de aplicaciones",
+          "skills": [
+            {
+              "name": "deploy-verifactu-update",
+              "path": "workflows/deployment/deploy-verifactu-update.md",
+              "version": "1.0.0",
+              "complexity": 8,
+              "estimated_tokens": "2000-3000",
+              "estimated_duration": "30-45 minutes",
+              "tags": [
+                "deployment",
+                "verifactu",
+                "production"
+              ]
+            }
+          ]
+        },
+        "testing": {
+          "description": "Testing, QA y validación",
+          "skills": []
+        },
+        "migration": {
+          "description": "Migraciones de datos y código",
+          "skills": []
+        }
+      }
+    }
+  },
+  "skills_index": [
+    {
+      "id": "validate-skill-format",
+      "category": "core/analysis",
+      "path": "core/analysis/validate-skill-format.md",
+      "complexity": 3
+    },
+    {
+      "id": "sync-skills-registry",
+      "category": "core/analysis",
+      "path": "core/analysis/sync-skills-registry.md",
+      "complexity": 2
+    },
+    {
+      "id": "generate-boilerplate",
+      "category": "core/generation",
+      "path": "core/generation/generate-boilerplate.md",
+      "complexity": 4
+    },
+    {
+      "id": "extract-method",
+      "category": "core/refactoring",
+      "path": "core/refactoring/extract-method.md",
+      "complexity": 5
+    },
+    {
+      "id": "generate-readme",
+      "category": "core/documentation",
+      "path": "core/documentation/generate-readme.md",
+      "complexity": 3
+    },
+    {
+      "id": "analyze-delphi-unit",
+      "category": "domain/delphi",
+      "path": "domain/delphi/analyze-delphi-unit.md",
+      "complexity": 4
+    },
+    {
+      "id": "create-database-migration",
+      "category": "domain/database",
+      "path": "domain/database/create-database-migration.md",
+      "complexity": 6
+    },
+    {
+      "id": "validate-verifactu-implementation",
+      "category": "domain/verifactu",
+      "path": "domain/verifactu/validate-verifactu-implementation.md",
+      "complexity": 7
+    },
+    {
+      "id": "deploy-verifactu-update",
+      "category": "workflows/deployment",
+      "path": "workflows/deployment/deploy-verifactu-update.md",
+      "complexity": 8
+    }
+  ],
+  "tags": {
+    "analysis": [
+      "validate-skill-format",
+      "analyze-delphi-unit"
+    ],
+    "automation": [
+      "sync-skills-registry"
+    ],
+    "auto-doc": [
+      "generate-readme"
+    ],
+    "bde": [
+      "create-database-migration"
+    ],
+    "boilerplate": [
+      "generate-boilerplate"
+    ],
+    "clean-code": [
+      "extract-method"
+    ],
+    "code": [
+      "generate-boilerplate"
+    ],
+    "code-review": [
+      "analyze-delphi-unit"
+    ],
+    "compliance": [
+      "validate-verifactu-implementation"
+    ],
+    "database": [
+      "create-database-migration"
+    ],
+    "delphi": [
+      "analyze-delphi-unit"
+    ],
+    "deployment": [
+      "deploy-verifactu-update"
+    ],
+    "documentation": [
+      "generate-readme"
+    ],
+    "generation": [
+      "generate-boilerplate"
+    ],
+    "maintenance": [
+      "sync-skills-registry"
+    ],
+    "markdown": [
+      "generate-readme"
+    ],
+    "meta": [
+      "validate-skill-format",
+      "sync-skills-registry"
+    ],
+    "methods": [
+      "extract-method"
+    ],
+    "migration": [
+      "create-database-migration"
+    ],
+    "paradox": [
+      "create-database-migration"
+    ],
+    "production": [
+      "deploy-verifactu-update"
+    ],
+    "quality": [
+      "validate-skill-format"
+    ],
+    "readme": [
+      "generate-readme"
+    ],
+    "refactoring": [
+      "extract-method"
+    ],
+    "skills": [
+      "validate-skill-format"
+    ],
+    "solid": [
+      "extract-method"
+    ],
+    "sync": [
+      "sync-skills-registry"
+    ],
+    "templates": [
+      "generate-boilerplate"
+    ],
+    "validation": [
+      "validate-skill-format",
+      "validate-verifactu-implementation"
+    ],
+    "verifactu": [
+      "validate-verifactu-implementation",
+      "deploy-verifactu-update"
+    ]
+  },
+  "statistics": {
+    "total_skills": 9,
+    "by_category": {
+      "core": 5,
+      "domain": 3,
+      "workflows": 1
+    },
+    "by_subcategory": {
+      "core/analysis": 2,
+      "core/generation": 1,
+      "core/refactoring": 1,
+      "core/documentation": 1,
+      "domain/delphi": 1,
+      "domain/database": 1,
+      "domain/verifactu": 1,
+      "workflows/deployment": 1,
+      "workflows/testing": 0,
+      "workflows/migration": 0
+    },
+    "by_complexity": {
+      "low_1_3": 3,
+      "medium_4_6": 4,
+      "high_7_8": 2,
+      "critical_9_10": 0
+    },
+    "total_estimated_tokens": {
+      "min": 5500,
+      "max": 9100
+    },
+    "coverage": {
+      "subcategories_with_skills": 8,
+      "total_subcategories": 10,
+      "percentage": 80
+    }
+  },
+  "metadata": {
+    "schema_version": "1.1.0",
+    "compatible_ai_models": [
+      "gemini-2.0-flash-exp",
+      "gemini-2.5-pro",
+      "claude-3.5-sonnet",
+      "claude-4",
+      "gpt-4",
+      "gpt-4o",
+      "gpt-4-turbo",
+      "any-llm"
+    ],
+    "project": "ARAINFORIA",
+    "maintainer": "Sistema de Skills",
+    "auto_discovery": true,
+    "validation_enabled": true,
+    "sync_skill": "core/analysis/sync-skills-registry"
+  },
+  "quality": {
+    "all_skills_have_metadata": true,
+    "all_skills_validated": true,
+    "index_synchronized": true,
+    "coverage_complete": false,
+    "planned_skills": [
+      "workflows/testing/run-test-suite",
+      "workflows/migration/migrate-database"
+    ]
+  }
+}

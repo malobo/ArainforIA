@@ -1,0 +1,24 @@
+{
+    "id": "log-development-activity",
+    "name": "Log de Actividad de Desarrollo",
+    "version": "1.0.0",
+    "category": "core/integration",
+    "path": "core/integration/log-development-activity.md",
+    "type": "automation",
+    "tags": [
+        "notion",
+        "logging",
+        "tracking",
+        "history",
+        "automation"
+    ],
+    "complexity": 3,
+    "estimated_tokens": "400-600",
+    "requires_mcp": true,
+    "author": "Sistema",
+    "created": "2026-01-07",
+    "status": "stable",
+    "description": "Registra automáticamente actividades de desarrollo en Notion, creando historial completo y buscable.",
+    "usage_count": 0,
+    "last_used": null
+}

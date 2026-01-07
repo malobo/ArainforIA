@@ -1,0 +1,24 @@
+{
+    "id": "sync-project-docs",
+    "name": "Sincronizar Documentación de Proyecto",
+    "version": "1.0.0",
+    "category": "core/integration",
+    "path": "core/integration/sync-project-docs.md",
+    "type": "automation",
+    "tags": [
+        "notion",
+        "documentation",
+        "sync",
+        "delphi",
+        "auto-doc"
+    ],
+    "complexity": 4,
+    "estimated_tokens": "600-900",
+    "requires_mcp": true,
+    "author": "Sistema",
+    "created": "2026-01-07",
+    "status": "stable",
+    "description": "Sincroniza automáticamente documentación de código con Notion, creando páginas de unidades, clases y métodos.",
+    "usage_count": 0,
+    "last_used": null
+}

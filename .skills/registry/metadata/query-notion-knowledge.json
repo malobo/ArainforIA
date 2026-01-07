@@ -1,0 +1,24 @@
+{
+    "id": "query-notion-knowledge",
+    "name": "Consultar Base de Conocimiento en Notion",
+    "version": "1.0.0",
+    "category": "core/integration",
+    "path": "core/integration/query-notion-knowledge.md",
+    "type": "query",
+    "tags": [
+        "notion",
+        "search",
+        "knowledge",
+        "rag",
+        "documentation"
+    ],
+    "complexity": 2,
+    "estimated_tokens": "300-500",
+    "requires_mcp": true,
+    "author": "Sistema",
+    "created": "2026-01-07",
+    "status": "stable",
+    "description": "Busca información en tu base de conocimiento de Notion antes de recurrir a internet.",
+    "usage_count": 0,
+    "last_used": null
+}

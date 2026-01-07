@@ -1,0 +1,60 @@
+{
+    "id": "generate-boilerplate",
+    "name": "Generar Boilerplate de Código",
+    "version": "1.0.0",
+    "category": "core/generation",
+    "path": "core/generation/generate-boilerplate.md",
+    "tags": [
+        "generation",
+        "boilerplate",
+        "code",
+        "templates"
+    ],
+    "complexity": 4,
+    "estimated_tokens": "500-800",
+    "author": "Sistema",
+    "created": "2026-01-07",
+    "updated": "2026-01-07",
+    "status": "stable",
+    "description": "Genera código boilerplate para diferentes tipos de componentes Delphi.",
+    "inputs": [
+        {
+            "name": "component_type",
+            "type": "string",
+            "required": true
+        },
+        {
+            "name": "name",
+            "type": "string",
+            "required": true
+        },
+        {
+            "name": "language",
+            "type": "string",
+            "required": false,
+            "default": "delphi"
+        },
+        {
+            "name": "options",
+            "type": "object",
+            "required": false
+        }
+    ],
+    "outputs": [
+        {
+            "name": "code",
+            "type": "string"
+        },
+        {
+            "name": "filename",
+            "type": "string"
+        },
+        {
+            "name": "dependencies",
+            "type": "array"
+        }
+    ],
+    "dependencies": [],
+    "usage_count": 0,
+    "last_used": null
+}

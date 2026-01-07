@@ -1,0 +1,23 @@
+{
+    "name": "validate-system-health",
+    "version": "1.0.0",
+    "category": "core/analysis",
+    "complexity": 4,
+    "tokens_estimate": {
+        "min": 800,
+        "max": 1200
+    },
+    "tags": [
+        "validation",
+        "health-check",
+        "diagnostics",
+        "maintenance",
+        "system"
+    ],
+    "created": "2026-01-07",
+    "updated": "2026-01-07",
+    "author": "system",
+    "status": "active",
+    "requires": [],
+    "dependencies": []
+}
