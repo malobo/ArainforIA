@@ -5,6 +5,74 @@ Todos los cambios notables en el sistema de skills serán documentados en este a
 El formato está basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.0.0/),
 y este proyecto adhiere a [Semantic Versioning](https://semver.org/lang/es/).
 
+## [1.8.0] - 2026-01-08
+
+### Añadido
+
+#### Fase 1: Skills Específicas del Stack
+
+- **generate-verifactu-xml** (domain/verifactu): Generación de XML Verifactu para AEAT.
+- **validate-paradox-table** (domain/database): Diagnóstico y reparación de tablas Paradox.
+- **generate-gmprint-invoice** (domain/database): Templates de impresión con GmPrintSuite.
+- **analyze-project-structure** (core/analysis): Mapeo de dependencias de proyectos.
+
+#### Fase 2: Infraestructura
+
+- **skill-aliases** (registry): Sistema de nombres alternativos para skills.
+- **skill-composer** (workflows/development): Composición de skills en pipelines.
+
+#### Fase 3: Skills Pendientes
+
+- **generate-report-template** (domain/database): Plantillas de informes genéricos.
+- **generate-data-export** (domain/database): Exportación a CSV, JSON, Excel.
+- **implement-audit-trail** (domain/database): Sistema de auditoría de cambios.
+- **migrate-bde-firedac** (workflows/migration): Workflow de migración BDE→FireDAC.
+- **optimize-vcl-form** (domain/delphi): Optimización de formularios VCL.
+- **refactor-to-mvp** (core/refactoring): Guía de refactorización a MVP.
+- **create-rest-endpoint** (domain/delphi): Creación de APIs REST con mORMot2.
+- **sync-mobile-data** (workflows/development): Sincronización móvil↔desktop.
+- **debug-connection-issue** (domain/database): Diagnóstico de conexiones BD.
+
+### Cambiado
+
+- **INDEX.md**: Reorganizado con subsecciones por categoría.
+- **Total skills**: 45+ (15 nuevas en esta versión).
+
+---
+
+## [1.7.0] - 2026-01-08
+
+### Añadido
+
+#### Nuevas Skills para Desarrollo Híbrido Delphi
+
+- **convert-sql-paradox** (domain/database): Conversión de SQL estándar a Paradox/BDE.
+  - Tabla de conversiones completa
+  - Ejemplos prácticos con alternativas
+  - Documentación de limitaciones
+
+- **generate-api-client** (domain/delphi): Generación de clientes REST con mORMot2.
+  - Templates para autenticación (API Key, OAuth2, Certificados)
+  - Manejo de errores y reintentos
+  - Ejemplo específico para AEAT
+
+- **validate-dfm-integrity** (core/analysis): Validación de archivos DFM.
+  - Checklist de validación completo
+  - Solución de errores comunes
+  - Script de limpieza automática
+
+- **generate-json-dto** (core/generation): Generación de DTOs para JSON.
+  - Templates con mORMot2 y System.JSON
+  - Mapeo de tipos JSON → Delphi
+  - Validación de DTOs
+
+### Cambiado
+
+- **INDEX.md**: Reorganizado con nueva sección Domain y subsecciones.
+- **Versión**: Actualizada a 1.7.0.
+
+---
+
 ## [1.6.0] - 2026-01-07
 
 ### Añadido
