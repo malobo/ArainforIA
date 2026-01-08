@@ -5,6 +5,24 @@ Todos los cambios notables en el sistema de skills serán documentados en este a
 El formato está basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.0.0/),
 y este proyecto adhiere a [Semantic Versioning](https://semver.org/lang/es/).
 
+## [2.0.1] - 2026-01-08
+
+### Mejorado
+
+#### Automatización de Specs
+
+- **update-specs v2.0**: 3 modos de operación (full, incremental, validate)
+- Detección de cambios incremental (compara fechas)
+- Formato de deltas para histórico de cambios
+
+#### Nuevos Comandos Slash
+
+- `/spec-update` - Actualizar specs desde código
+- `/spec-validate` - Validar coherencia specs vs código
+- `/spec-view <nombre>` - Ver contenido de spec
+
+---
+
 ## [2.0.0] - 2026-01-08
 
 ### Añadido
