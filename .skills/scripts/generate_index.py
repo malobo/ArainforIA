@@ -2,8 +2,10 @@ import os
 import re
 from pathlib import Path
 
-SKILLS_DIR = Path(r"c:\Arainfor\.skills")
-INDEX_FILE = SKILLS_DIR / "index.md"
+# Use relative path from script location to root of .skills
+SCRIPT_DIR = Path(__file__).resolve().parent
+SKILLS_DIR = SCRIPT_DIR.parent
+INDEX_FILE = SKILLS_DIR / "INDEX.md"
 
 def parse_frontmatter(file_path):
     with open(file_path, 'r', encoding='utf-8') as f:
@@ -52,8 +54,12 @@ def generate_index():
     priority_order = {'critical': 0, 'high': 1, 'medium': 2, 'low': 3}
 
     for root, dirs, files in os.walk(SKILLS_DIR):
+        # Exclude internal directories
+        if 'scripts' in root or 'templates' in root or 'registry' in root:
+            continue
+            
         for file in files:
-            if file.endswith(".md") and not file.startswith("_") and file != "index.md" and file != "README.md":
+            if file.endswith(".md") and not file.startswith("_") and file != "INDEX.md" and file != "README.md" and file != "AI_GUIDE.md" and file != "GUIDELINES.md" and file != "CHANGELOG.md":
                 path = Path(root) / file
                 meta, content = parse_frontmatter(path)
                 
@@ -62,7 +68,10 @@ def generate_index():
                     cat_main = cat_raw.split('/')[0] if '/' in cat_raw else cat_raw
                     
                     if cat_main in categories:
-                        rel_path = str(path.relative_to(SKILLS_DIR)).replace('\\', '/')
+                        try:
+                            rel_path = str(path.relative_to(SKILLS_DIR)).replace('\\', '/')
+                        except ValueError:
+                            rel_path = str(path)
                         
                         has_xml = '<context>' in content and '<instruction>' in content
                         

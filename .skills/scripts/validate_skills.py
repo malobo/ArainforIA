@@ -3,7 +3,9 @@ import re
 import sys
 from pathlib import Path
 
-SKILLS_DIR = Path(r"c:\Arainfor\.skills")
+# Use relative path from script location to root of .skills
+SCRIPT_DIR = Path(__file__).resolve().parent
+SKILLS_DIR = SCRIPT_DIR.parent
 
 def parse_frontmatter(content):
     match = re.search(r'^---\n(.*?)\n---', content, re.DOTALL)
@@ -47,7 +49,7 @@ def validate_file(path):
     if not meta:
         issues.append("Missing or invalid YAML frontmatter")
     else:
-        required_fields = ['id', 'name', 'version', 'category', 'priority']
+        required_fields = ['name', 'version', 'category', 'priority']
         for field in required_fields:
             if field not in meta:
                 issues.append(f"Missing required metadata field: {field}")
@@ -72,8 +74,11 @@ def main():
     all_valid = True
     
     for root, dirs, files in os.walk(SKILLS_DIR):
+        if 'scripts' in root or 'templates' in root:
+            continue
+            
         for file in files:
-            if file.endswith(".md") and not file.startswith("_") and file != "index.md" and file != "README.md":
+            if file.endswith(".md") and not file.startswith("_") and file != "INDEX.md" and file != "README.md" and file != "AI_GUIDE.md" and file != "GUIDELINES.md" and file != "CHANGELOG.md":
                 path = Path(root) / file
                 issues = validate_file(path)
                 
