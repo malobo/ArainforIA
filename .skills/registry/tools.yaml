@@ -243,22 +243,16 @@ components:
         type: markdown
         uri: core/integration/sync-notion-skills.md
       inputs: {}
-    sync-openspec-registry:
-      name: sync-openspec-registry
-      description: '## Descripción'
-      version: 1.0.0
+    sincronizar-registro-openspec:
+      name: Sincronizar Registro OpenSpec
+      description: <context>
+      version: 2.0.0
       labels:
       - core/integration
       implementation:
         type: markdown
         uri: core/integration/sync-openspec-registry.md
-      inputs:
-        skills_root:
-          type: string
-          description: 'Ruta raíz de las skills (default: `.skills`)'
-        output_path:
-          type: string
-          description: 'Ruta del archivo de salida (default: `.skills/definitions/tools.yaml`)'
+      inputs: {}
     sync-project-docs:
       name: sync-project-docs
       description: '## Descripción'
@@ -782,6 +776,16 @@ components:
       implementation:
         type: markdown
         uri: workflows/development/sync-mobile-data.md
+      inputs: {}
+    sincronización-total-del-sistema:
+      name: Sincronización Total del Sistema
+      description: <context>
+      version: 1.0.0
+      labels:
+      - workflows/maintenance
+      implementation:
+        type: markdown
+        uri: workflows/maintenance/sync-all.md
       inputs: {}
     migrate-bde-firedac:
       name: migrate-bde-firedac

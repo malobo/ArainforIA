@@ -38,7 +38,7 @@
 -  [validate-dfm-integrity](core/analysis/validate-dfm-integrity.md) 
   - *Triggers: `dfm roto`, `componente no encontrado`, `error form`...*
 -  [validate-skill-format](core/analysis/validate-skill-format.md) 
--  [validate-system-health](core/analysis/validate-system-health.md) 
+- ✨ [validate-system-health](core/analysis/validate-system-health.md) 
 
 ## Proyectos
 - ✨ [Proyecto ARAFAC / Aracostes](projects/arafac.md) Rx **ALTA**
