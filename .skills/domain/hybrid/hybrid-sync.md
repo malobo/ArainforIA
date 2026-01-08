@@ -18,7 +18,7 @@ triggers:
 
 <context>
 Estrategia para integrar aplicaciones de escritorio ARAINFORIA (Delphi) con servicios en la nube (PHP/MySQL) para sincronización bidireccional de negocio.
-Basado en `CLOUD_INTEGRATION.md`.
+Basado en `specs/architecture-hybrid.md`.
 Stack: Delphi (`System.Net.HttpClient` o `mORMot`) <-> PHP (REST/JSON) <-> MySQL.
 </context>
 
@@ -51,6 +51,6 @@ Assistant: "En la arquitectura híbrida, Delphi hace polling (GET) a `/api/pedid
 </examples>
 
 <resources>
-- [`CLOUD_INTEGRATION.md`](c:/Arainfor/CLOUD_INTEGRATION.md) (Documento Maestro)
+- [`architecture-hybrid.md`](../../specs/architecture-hybrid.md) (Spec Maestro de Integración)
 - [`mORMot Framework`](core/mormot.md) (Útil para JSON/REST rápidos)
 </resources>
