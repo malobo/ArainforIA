@@ -157,6 +157,44 @@ Si el código base incluye pruebas:
 - Si no hay ninguno presente, recurrir al `AGENTES.md` raíz.
 - Las anulaciones temporales se aplican solo si el usuario las proporciona explícitamente.
 
+## Sistema de Skills
+
+Este proyecto incluye un **sistema de skills** en `.skills/` que define capacidades reutilizables para asistentes de IA.
+
+### Activación
+
+Las skills se activan por **triggers** (palabras clave). Consultar `.skills/INDEX.md` para el catálogo completo.
+
+| Trigger | Skill |
+|---------|-------|
+| `convertir sql`, `paradox query` | `convert-sql-paradox` |
+| `xml verifactu`, `factura aeat` | `generate-verifactu-xml` |
+| `imprimir factura`, `ticket` | `generate-gmprint-invoice` |
+| `tabla corrupta`, `reparar paradox` | `validate-paradox-table` |
+| `consumir api`, `cliente rest` | `generate-api-client` |
+
+### Comandos Slash
+
+```text
+/skill-list          # Listar skills disponibles
+/skill-run <nombre>  # Ejecutar skill específica
+/skill-help <nombre> # Ver documentación de skill
+/skill-search <query># Buscar skills
+/skill-pipeline <n>  # Ejecutar pipeline compuesto
+```
+
+### Prioridades
+
+Skills marcadas con 🔴 **CRÍTICO** deben cargarse siempre:
+
+- `core/delphi.md` - Convenciones Delphi
+- `core/verifactu.md` - Normativa Verifactu
+- `core/mormot.md` - Framework mORMot2
+
+### Referencia Completa
+
+Ver `.skills/INDEX.md` para el listado de 45+ skills disponibles.
+
 ## Estructura de Documentación
 
 A continuación se representa gráficamente la relación entre los archivos de documentación y el flujo de trabajo del agente:
