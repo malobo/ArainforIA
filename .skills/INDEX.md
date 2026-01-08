@@ -1,11 +1,11 @@
 # Índice de Skills de Arainfor
 
-**Sistema Next-Gen (Context Enhanced)**  
-**Versión 1.9.0 - 2026-01-08**
+**Sistema Next-Gen (Context Enhanced + Specs)**  
+**Versión 2.0.0 - 2026-01-08**
 
 ---
 
-## Core (Fundamentales) · 18 skills
+## Core (Fundamentales) · 19 skills
 
 ### Conectores Críticos
 
@@ -20,10 +20,11 @@
 - ✨ [mORMot 2 Framework](core/mormot.md) **ALTA**
   - *Triggers: `mormot`, `firmar factura`, `verifactu signature`*
 
-### Análisis · 5 skills
+### Análisis · 6 skills
 
 - [analyze-project-structure](core/analysis/analyze-project-structure.md) - Mapear dependencias
 - [sync-skills-registry](core/analysis/sync-skills-registry.md) - Sincronizar registro
+- [update-specs](core/analysis/update-specs.md) 🆕 - Actualizar specs desde código
 - [validate-dfm-integrity](core/analysis/validate-dfm-integrity.md) - Validar DFM
 - [validate-skill-format](core/analysis/validate-skill-format.md) - Validar formato skill
 - [validate-system-health](core/analysis/validate-system-health.md) - Salud del sistema
@@ -119,6 +120,21 @@
 
 ---
 
+## Specs (Especificaciones del Sistema) 🆕
+
+Documentación estructurada del estado actual del proyecto.
+
+- [README](specs/README.md) - Guía del sistema de specs
+- [system-context](specs/system-context.md) - Arquitectura general
+- [data-schema](specs/data-schema.yaml) - Esquema de datos
+- [dependencies](specs/dependencies.md) - Componentes y librerías
+
+### Propuestas de Cambio
+
+- [changes/README](changes/README.md) - Flujo de propuestas
+
+---
+
 ## Infraestructura
 
 - [Aliases](registry/aliases.md) - Nombres alternativos
@@ -126,4 +142,4 @@
 
 ---
 
-**Total: 50+ skills** | [CHANGELOG](CHANGELOG.md) | [AGENTES.md](../AGENTES.md)
+**Total: 52+ skills** | [CHANGELOG](CHANGELOG.md) | [AGENTES.md](../AGENTES.md)

@@ -5,6 +5,32 @@ Todos los cambios notables en el sistema de skills serán documentados en este a
 El formato está basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.0.0/),
 y este proyecto adhiere a [Semantic Versioning](https://semver.org/lang/es/).
 
+## [2.0.0] - 2026-01-08
+
+### Añadido
+
+#### Sistema de Especificaciones (Specs) - OpenSpec Integrado
+
+- **specs/README.md**: Guía del sistema de especificaciones
+- **specs/system-context.md**: Arquitectura y flujos del sistema
+- **specs/data-schema.yaml**: Esquema de tablas y campos
+- **specs/dependencies.md**: Componentes y dependencias
+
+#### Sistema de Propuestas de Cambio
+
+- **changes/README.md**: Flujo estructurado de cambios
+
+#### Nueva Skill
+
+- **update-specs** (core/analysis): Actualizar specs automáticamente desde código
+
+### Cambiado
+
+- **INDEX.md**: Añadida sección Specs, versión 2.0.0
+- Metodología inspirada en [OpenSpec](https://github.com/Fission-AI/OpenSpec)
+
+---
+
 ## [1.9.0] - 2026-01-08
 
 ### Añadido

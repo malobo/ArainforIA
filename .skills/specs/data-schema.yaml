@@ -1,0 +1,166 @@
+# Esquema de Datos - Arainfor
+# Versión: 1.0.0
+# Última actualización: 2026-01-08
+
+# TABLAS PRINCIPALES
+# ==================
+
+clientes:
+  descripcion: Maestro de clientes
+  pk: ID
+  campos:
+    - name: ID
+      type: INTEGER
+      nullable: false
+    - name: NOMBRE
+      type: VARCHAR(100)
+      nullable: false
+    - name: NIF
+      type: VARCHAR(15)
+      nullable: true
+    - name: DIRECCION
+      type: VARCHAR(200)
+      nullable: true
+    - name: POBLACION
+      type: VARCHAR(100)
+      nullable: true
+    - name: CP
+      type: VARCHAR(10)
+      nullable: true
+    - name: TELEFONO
+      type: VARCHAR(20)
+      nullable: true
+    - name: EMAIL
+      type: VARCHAR(100)
+      nullable: true
+    - name: FECHA_ALTA
+      type: DATE
+      nullable: true
+
+facturas:
+  descripcion: Cabecera de facturas
+  pk: ID
+  campos:
+    - name: ID
+      type: INTEGER
+      nullable: false
+    - name: SERIE
+      type: VARCHAR(10)
+      nullable: false
+    - name: NUMERO
+      type: INTEGER
+      nullable: false
+    - name: FECHA
+      type: DATE
+      nullable: false
+    - name: ID_CLIENTE
+      type: INTEGER
+      nullable: false
+      fk: clientes.ID
+    - name: BASE_IMPONIBLE
+      type: DECIMAL(18,2)
+      nullable: false
+    - name: IVA
+      type: DECIMAL(5,2)
+      nullable: false
+    - name: CUOTA_IVA
+      type: DECIMAL(18,2)
+      nullable: false
+    - name: TOTAL
+      type: DECIMAL(18,2)
+      nullable: false
+    # Campos Verifactu
+    - name: HASH_VERIFACTU
+      type: VARCHAR(64)
+      nullable: true
+    - name: HASH_ANTERIOR
+      type: VARCHAR(64)
+      nullable: true
+    - name: XML_ENVIADO
+      type: BLOB
+      nullable: true
+    - name: ESTADO_VERIFACTU
+      type: VARCHAR(20)
+      nullable: true
+
+facturas_lineas:
+  descripcion: Líneas de factura
+  pk: ID
+  campos:
+    - name: ID
+      type: INTEGER
+      nullable: false
+    - name: ID_FACTURA
+      type: INTEGER
+      nullable: false
+      fk: facturas.ID
+    - name: DESCRIPCION
+      type: VARCHAR(200)
+      nullable: false
+    - name: CANTIDAD
+      type: DECIMAL(10,2)
+      nullable: false
+    - name: PRECIO
+      type: DECIMAL(18,2)
+      nullable: false
+    - name: IMPORTE
+      type: DECIMAL(18,2)
+      nullable: false
+
+productos:
+  descripcion: Maestro de productos/servicios
+  pk: ID
+  campos:
+    - name: ID
+      type: INTEGER
+      nullable: false
+    - name: CODIGO
+      type: VARCHAR(20)
+      nullable: false
+    - name: DESCRIPCION
+      type: VARCHAR(200)
+      nullable: false
+    - name: PRECIO
+      type: DECIMAL(18,2)
+      nullable: false
+    - name: IVA
+      type: DECIMAL(5,2)
+      nullable: false
+    - name: STOCK
+      type: DECIMAL(10,2)
+      nullable: true
+
+# TABLAS DE AUDITORÍA
+# ===================
+
+aud_log:
+  descripcion: Log de auditoría de cambios
+  pk: ID
+  campos:
+    - name: ID
+      type: INTEGER
+      nullable: false
+    - name: TABLA
+      type: VARCHAR(50)
+      nullable: false
+    - name: OPERACION
+      type: VARCHAR(10)
+      nullable: false
+    - name: ID_REGISTRO
+      type: INTEGER
+      nullable: false
+    - name: CAMPO
+      type: VARCHAR(50)
+      nullable: true
+    - name: VALOR_ANTERIOR
+      type: VARCHAR(255)
+      nullable: true
+    - name: VALOR_NUEVO
+      type: VARCHAR(255)
+      nullable: true
+    - name: USUARIO
+      type: VARCHAR(50)
+      nullable: true
+    - name: FECHA
+      type: TIMESTAMP
+      nullable: false
