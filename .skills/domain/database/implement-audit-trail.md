@@ -1,122 +1,56 @@
 ---
-name: implement-audit-trail
+id: skill-implement-audit-trail
+name: Implementar Auditoría de Datos
 version: 1.0.0
 category: domain/database
-tags: [auditoria, historial, log, trazabilidad]
-author: ARAINFORIA
-created: 2026-01-08
-complexity: 6
+priority: medium
+last_updated: 2026-01-08
 triggers:
   - "auditar cambios"
   - "historial registros"
   - "log modificaciones"
-  - "trazabilidad"
+  - "trigger auditoria"
 ---
 
-# Implementar Auditoría de Cambios
+# 🕵️ Implementar Auditoría de Datos
 
-## Descripción
+<context>
+Guiar en la implementación de un sistema de "Audit Trail" para registrar quién y cuándo modificó registros. Se puede hacer vía Triggers de Base de Datos (recomendado) o en la capa de Aplicación (Eventos Delphi).
+</context>
 
-Implementa sistema de auditoría para registrar cambios en tablas.
+<instruction>
+Estrategias de Auditoría:
 
-## Estructura de Tabla Auditoría
+1. **Tabla de Auditoría Única**:
+    * `AUDIT_LOG (ID, TableName, RecordID, Action, User, Timestamp, OldValue, NewValue)`.
+2. **Columnas de Auditoría**:
+    * Añadir `CreatedBy`, `CreatedAt`, `UpdatedBy`, `UpdatedAt` a cada tabla importante.
+3. **Implementación Delphi (`BeforePost`)**:
+    * En el `DataModule`, asignar valores a los campos de auditoría antes de guardar.
+    * Ventaja: Conoce al usuario de la aplicación.
+    * Desventaja: No captura cambios hechos fuera de la app (SQL directo).
 
-```sql
-CREATE TABLE AUD_LOG (
-  ID          INTEGER PRIMARY KEY,
-  TABLA       VARCHAR(50),
-  OPERACION   VARCHAR(10),  -- INSERT, UPDATE, DELETE
-  ID_REGISTRO INTEGER,
-  CAMPO       VARCHAR(50),
-  VALOR_ANT   VARCHAR(255),
-  VALOR_NUE   VARCHAR(255),
-  USUARIO     VARCHAR(50),
-  FECHA       TIMESTAMP,
-  EQUIPO      VARCHAR(50)
-);
-```
+</instruction>
 
-## Clase de Auditoría
+<examples>
+User: "Quiero guardar quién modificó una factura"
+Agent: "Lo más sencillo en Delphi es usar el evento `BeforePost` del TTable/TQuery:
 
-```pascal
-type
-  TAuditoria = class
-  private
-    FUsuario: string;
-    FEquipo: string;
-    FQuery: TQuery;
-  public
-    constructor Create(AQuery: TQuery);
-    
-    procedure RegistrarCambio(const Tabla, Operacion: string;
-      IdRegistro: Integer; const Campo, ValorAnt, ValorNuevo: string);
-    procedure AuditarDataSet(DS: TDataSet; const Tabla: string);
-  end;
-
-constructor TAuditoria.Create(AQuery: TQuery);
+```delphi
+procedure TDataModule1.TableFacturasBeforePost(DataSet: TDataSet);
 begin
-  FQuery := AQuery;
-  FUsuario := GetWindowsUser;
-  FEquipo := GetComputerName;
-end;
-
-procedure TAuditoria.RegistrarCambio(const Tabla, Operacion: string;
-  IdRegistro: Integer; const Campo, ValorAnt, ValorNuevo: string);
-begin
-  FQuery.SQL.Text := 
-    'INSERT INTO AUD_LOG (TABLA, OPERACION, ID_REGISTRO, ' +
-    'CAMPO, VALOR_ANT, VALOR_NUE, USUARIO, FECHA, EQUIPO) ' +
-    'VALUES (:T, :O, :ID, :C, :VA, :VN, :U, :F, :E)';
-  FQuery.ParamByName('T').AsString := Tabla;
-  FQuery.ParamByName('O').AsString := Operacion;
-  FQuery.ParamByName('ID').AsInteger := IdRegistro;
-  FQuery.ParamByName('C').AsString := Campo;
-  FQuery.ParamByName('VA').AsString := Copy(ValorAnt, 1, 255);
-  FQuery.ParamByName('VN').AsString := Copy(ValorNuevo, 1, 255);
-  FQuery.ParamByName('U').AsString := FUsuario;
-  FQuery.ParamByName('F').AsDateTime := Now;
-  FQuery.ParamByName('E').AsString := FEquipo;
-  FQuery.ExecSQL;
-end;
-
-procedure TAuditoria.AuditarDataSet(DS: TDataSet; const Tabla: string);
-var
-  I: Integer;
-  IdReg: Integer;
-begin
-  IdReg := DS.FieldByName('ID').AsInteger;
-  
-  case DS.State of
-    dsInsert:
-      RegistrarCambio(Tabla, 'INSERT', IdReg, '*', '', 'Nuevo registro');
-      
-    dsEdit:
-      for I := 0 to DS.FieldCount - 1 do
-        if DS.Fields[I].OldValue <> DS.Fields[I].Value then
-          RegistrarCambio(Tabla, 'UPDATE', IdReg,
-            DS.Fields[I].FieldName,
-            VarToStr(DS.Fields[I].OldValue),
-            VarToStr(DS.Fields[I].Value));
+  if DataSet.State = dsInsert then
+  begin
+    DataSet.FieldByName('CREATED_AT').AsDateTime := Now;
+    DataSet.FieldByName('CREATED_BY').AsString := GlobalUser;
+  end
+  else if DataSet.State = dsEdit then
+  begin
+    DataSet.FieldByName('UPDATED_AT').AsDateTime := Now;
+    DataSet.FieldByName('UPDATED_BY').AsString := GlobalUser;
   end;
 end;
 ```
 
-## Uso en Eventos
-
-```pascal
-procedure TForm1.TableBeforePost(DataSet: TDataSet);
-begin
-  Auditoria.AuditarDataSet(DataSet, 'CLIENTES');
-end;
-
-procedure TForm1.TableBeforeDelete(DataSet: TDataSet);
-begin
-  Auditoria.RegistrarCambio('CLIENTES', 'DELETE',
-    DataSet.FieldByName('ID').AsInteger, '*', 
-    'Registro eliminado', '');
-end;
-```
-
----
-
-**Estado**: stable
+Asegúrate de crear esos campos en la tabla Paradox/SQL primero."
+</examples>

@@ -93,9 +93,9 @@ components:
         type: markdown
         uri: core/analysis/update-specs.md
       inputs: {}
-    validate-dfm-integrity:
-      name: validate-dfm-integrity
-      description: '## Descripción'
+    validar-integridad-dfm:
+      name: Validar Integridad DFM
+      description: <context>
       version: 1.0.0
       labels:
       - core/analysis
@@ -345,9 +345,9 @@ components:
         type: markdown
         uri: domain/database/generate-crud-forms.md
       inputs: {}
-    generate-data-export:
-      name: generate-data-export
-      description: '## Descripción'
+    generar-exportación-datos-(excel/csv):
+      name: Generar Exportación Datos (Excel/CSV)
+      description: <context>
       version: 1.0.0
       labels:
       - domain/database
@@ -385,9 +385,9 @@ components:
         type: markdown
         uri: domain/database/generate-stored-procedure.md
       inputs: {}
-    implement-audit-trail:
-      name: implement-audit-trail
-      description: '## Descripción'
+    implementar-auditoría-de-datos:
+      name: Implementar Auditoría de Datos
+      description: <context>
       version: 1.0.0
       labels:
       - domain/database
@@ -493,6 +493,16 @@ components:
       implementation:
         type: markdown
         uri: domain/delphi/generate-exception-handler.md
+      inputs: {}
+    generar-plantilla-informe-(gmprintsuite):
+      name: Generar Plantilla Informe (GmPrintSuite)
+      description: <context>
+      version: 1.0.0
+      labels:
+      - domain/delphi
+      implementation:
+        type: markdown
+        uri: domain/delphi/generate-report-template.md
       inputs: {}
     generate-singleton:
       name: generate-singleton

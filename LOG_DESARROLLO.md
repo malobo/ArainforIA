@@ -128,6 +128,13 @@ Este documento resume las ventajas estratégicas de evolucionar el sistema actua
 * Creado skill `workflows/maintenance/sync-all.md` para automatizar Indexado + Git + Notion.
 * Ejecutada sincronización completa.
 
+**Skills Productividad/Media (Camino 2) Implementadas**:
+
+1. `domain/delphi/generate-report-template.md`: Helpers para GmPrintSuite.
+2. `core/analysis/validate-dfm-integrity.md`: Guía de reparación de DFMs corruptos.
+3. `domain/database/generate-data-export.md`: Exportación eficiente a CSV/Excel.
+4. `domain/database/implement-audit-trail.md`: Estrategias de auditoría (Triggers/Eventos).
+
 ### Próximos Pasos
 
 * [ ] Abordar la integración híbrida (PHP API).

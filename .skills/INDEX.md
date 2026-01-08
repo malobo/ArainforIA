@@ -18,6 +18,8 @@
   - *Triggers: `sincronizar registro`, `actualizar tools.yaml`, `generar openspec`...*
 - ✨ [mORMot 2 Framework](core/mormot.md) Rx **ALTA**
   - *Triggers: `mormot`, `firmar factura`, `verifactu signature`...*
+- ✨ [Validar Integridad DFM](core/analysis/validate-dfm-integrity.md) 
+  - *Triggers: `dfm roto`, `componente no encontrado`, `error form`...*
 -  [analyze-project-structure](core/analysis/analyze-project-structure.md) 
   - *Triggers: `analizar proyecto`, `mapa dependencias`, `estructura proyecto`...*
 -  [create-notion-issue](core/integration/create-notion-issue.md) 
@@ -35,8 +37,6 @@
 -  [update-specs](core/analysis/update-specs.md) 
   - *Triggers: `actualizar specs`, `sincronizar arquitectura`, `documentar sistema`...*
 -  [update-task-status](core/integration/update-task-status.md) 
--  [validate-dfm-integrity](core/analysis/validate-dfm-integrity.md) 
-  - *Triggers: `dfm roto`, `componente no encontrado`, `error form`...*
 -  [validate-skill-format](core/analysis/validate-skill-format.md) 
 - ✨ [validate-system-health](core/analysis/validate-system-health.md) 
 

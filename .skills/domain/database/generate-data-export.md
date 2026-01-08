@@ -1,136 +1,76 @@
 ---
-name: generate-data-export
+id: skill-generate-data-export
+name: Generar Exportación Datos (Excel/CSV)
 version: 1.0.0
 category: domain/database
-tags: [exportar, excel, csv, json, xml]
-author: ARAINFORIA
-created: 2026-01-08
-complexity: 4
+priority: medium
+last_updated: 2026-01-08
 triggers:
   - "exportar excel"
   - "generar csv"
   - "sacar datos"
-  - "exportar json"
+  - "exportar query"
 ---
 
-# Generar Exportación de Datos
+# 📤 Generar Exportación de Datos
 
-## Descripción
+<context>
+Esta skill genera código Delphi para exportar datasets (TQuery/TTable) a formatos comunes de intercambio, principalmente CSV (texto) y Excel (vía OLE o CSV compatible).
+</context>
 
-Genera código para exportar datos a diferentes formatos (CSV, JSON, XML, Excel).
+<instruction>
+Al generar código de exportación:
 
-## Exportar a CSV
+1. **Formato CSV (Rápido y Compatible)**:
+    * Usar `TStringList`.
+    * Iterar DataSet.
+    * Concatenar campos con `;` o `,`.
+    * Escapar comillas dobles si es necesario.
+2. **Excel OLE (Lento pero con Formato)**:
+    * Usar `ComObj`, `CreateOleObject('Excel.Application')`.
+    * Solo recomendar para reportes estéticos, no para volúmenes grandes de datos.
+3. **Rendimiento**:
+    * Usar `DisableControls` / `EnableControls` en el DataSet antes de iterar.
 
-```pascal
-procedure ExportarCSV(Query: TDataSet; const FileName: string;
-  Separador: Char = ';'; ConCabeceras: Boolean = True);
+</instruction>
+
+<examples>
+User: "Genera una exportación a CSV para la tabla de Facturas"
+Agent:
+```delphi
+procedure ExportarFacturasCSV(Dataset: TDataSet; const FileName: string);
 var
-  F: TextFile;
-  I: Integer;
-  Linea: string;
+  SL: TStringList;
+  Line: string;
 begin
-  AssignFile(F, FileName);
-  Rewrite(F);
+  SL := TStringList.Create;
   try
-    // Cabeceras
-    if ConCabeceras then
-    begin
-      Linea := '';
-      for I := 0 to Query.FieldCount - 1 do
+    Dataset.DisableControls;
+    try
+      Dataset.First;
+      // Cabecera
+      SL.Add('ID;FECHA;CLIENTE;TOTAL');
+
+      // Datos
+      while not Dataset.Eof do
       begin
-        if I > 0 then Linea := Linea + Separador;
-        Linea := Linea + '"' + Query.Fields[I].FieldName + '"';
+        Line := Format('%d;%s;%s;%f', [
+          Dataset.FieldByName('ID').AsInteger,
+          DateToStr(Dataset.FieldByName('FECHA').AsDateTime),
+          Dataset.FieldByName('CLIENTE').AsString,
+          Dataset.FieldByName('TOTAL').AsFloat
+        ]);
+        SL.Add(Line);
+        Dataset.Next;
       end;
-      WriteLn(F, Linea);
+    finally
+      Dataset.EnableControls;
     end;
-    
-    // Datos
-    Query.First;
-    while not Query.Eof do
-    begin
-      Linea := '';
-      for I := 0 to Query.FieldCount - 1 do
-      begin
-        if I > 0 then Linea := Linea + Separador;
-        Linea := Linea + '"' + StringReplace(
-          Query.Fields[I].AsString, '"', '""', [rfReplaceAll]) + '"';
-      end;
-      WriteLn(F, Linea);
-      Query.Next;
-    end;
+    SL.SaveToFile(FileName);
   finally
-    CloseFile(F);
+    SL.Free;
   end;
 end;
+
 ```
-
-## Exportar a JSON (mORMot2)
-
-```pascal
-uses
-  mormot.core.json;
-
-function ExportarJSON(Query: TDataSet): RawUtf8;
-var
-  Arr: TDocVariantData;
-  Row: TDocVariantData;
-  I: Integer;
-begin
-  Arr.InitArray([]);
-  
-  Query.First;
-  while not Query.Eof do
-  begin
-    Row.InitObject([]);
-    for I := 0 to Query.FieldCount - 1 do
-      Row.AddValue(Query.Fields[I].FieldName, 
-                   Query.Fields[I].AsVariant);
-    Arr.AddItem(Variant(Row));
-    Query.Next;
-  end;
-  
-  Result := Arr.ToJson;
-end;
-```
-
-## Exportar a Excel (OLE)
-
-```pascal
-uses
-  ComObj;
-
-procedure ExportarExcel(Query: TDataSet; const FileName: string);
-var
-  Excel, Workbook, Sheet: Variant;
-  Row, Col: Integer;
-begin
-  Excel := CreateOleObject('Excel.Application');
-  try
-    Workbook := Excel.Workbooks.Add;
-    Sheet := Workbook.Worksheets[1];
-    
-    // Cabeceras
-    for Col := 0 to Query.FieldCount - 1 do
-      Sheet.Cells[1, Col + 1] := Query.Fields[Col].FieldName;
-    
-    // Datos
-    Row := 2;
-    Query.First;
-    while not Query.Eof do
-    begin
-      for Col := 0 to Query.FieldCount - 1 do
-        Sheet.Cells[Row, Col + 1] := Query.Fields[Col].AsVariant;
-      Inc(Row);
-      Query.Next;
-    end;
-    
-    Workbook.SaveAs(FileName);
-  finally
-    Excel.Quit;
-  end;
-end;
-```
-
----
-
-**Estado**: stable
+</examples>
