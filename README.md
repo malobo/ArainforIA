@@ -10,28 +10,33 @@ Actúa como el "cerebro" y la base de conocimientos viva para los asistentes de 
 
 El núcleo de este repositorio es el directorio `.skills/`, un framework modular de **Context as Code** diseñado para eliminar alucinaciones y estandarizar el desarrollo.
 
-### Novedades v2.0
+### Novedades v2.1 (Enero 2026 - Ciclo Completado)
+
+Hemos cerrado el ciclo de implementación estratégico con **73 Skills** activas, cubriendo 3 áreas clave:
+
+1. ☁️ **Integración Híbrida**: Arquitectura PHP/MySQL para sincronización móvil y nube.
+2. ⚡ **Productividad**: Generadores de reportes, validadores DFM y exportación de datos.
+3. 🏗️ **Arquitectura Avanzada**: Refactorización MVP, Servicios REST mORMot 2 y Debugging de Conexiones.
 
 - ✨ **Hyper-Context XML**: Uso de tags semánticos (`<context>`, `<instruction>`, `<examples>`) para segmentar la información y guiar a la IA con precisión quirúrgica.
 - ⚡ **Auto-Triggers**: Las skills definen sus propias palabras clave (`triggers`) para ser cargadas automáticamente solo cuando se necesitan.
-- 🏗️ **Arquitectura Híbrida**: Soporte nativo para desarrollo dual **Delphi (Escritorio)** + **PHP (Nube/Sincronización)**.
 - 🛡️ **Validación Automática**: Scripts Python (`generate_index.py`) que garantizan la integridad del sistema.
 
 ### Estructura del Sistema
 
 ```text
 .skills/
-├── core/           # Capacidades fundamentales
-│   ├── analysis/   # Validación de sistema y código
-│   ├── generation/ # Boilerplate y Tests
-│   └── integration/# Conectores RAG y Notion MCP
-├── domain/         # Conocimiento experto
-│   ├── delphi/     # Clean Code & Best Practices
-│   ├── verifactu/  # Normativa Antifraude Española
-│   ├── hybrid/     # Sincronización Nube-Escritorio
-│   └── projects/   # Contexto específico (ARAFAC, ERPW)
-└── workflows/      # Procedimientos secuenciales (Compilación, Deploy)
+├── core/           # Capacidades fundamentales (Refactoring, Analysis)
+├── domain/         # Conocimiento experto (Delphi, Database, Verifactu)
+├── workflows/      # Procedimientos secuenciales (Sync, Build, Deploy)
+└── registry/       # OpenSpec Tools Registry (73 skills indexed)
 ```
+
+## 📚 Recursos Clave
+
+- **[MANUAL_SKILLS.docx](MANUAL_SKILLS.docx)**: Referencia completa imprimible con todas las skills, descripciones y ejemplos.
+- **[LOG_DESARROLLO.md](LOG_DESARROLLO.md)**: Bitácora detallada de la evolución del sistema y decisiones de diseño.
+- **[AGENTES.md](AGENTES.md)**: Reglas de "Constitución" para los agentes de IA.
 
 ## 🛠️ Capacidades Destacadas
 
@@ -40,20 +45,19 @@ El núcleo de este repositorio es el directorio `.skills/`, un framework modular
     - Uso de `mORMot 2` para firma digital (PKCS#11/X.509) y generación de PDF/A-1.
 
 2. **Integración MCP (Model Context Protocol)**:
-    - **Delphi RAG**: Consultas directas a la documentación oficial y ayudas CHM/PDF.
-    - **Notion Sync**: Sincronización bidireccional con la gestión de proyectos y roadmap.
+    - **Delphi RAG**: Consultas directas a la documentación oficial.
+    - **Notion Sync**: Sincronización bidireccional con la gestión de proyectos.
 
-3. **Desarrollo Híbrido**:
-    - Patrones de sincronización offline-first entre Delphi y APIs REST PHP.
+3. **Arquitectura Híbrida & MVP**:
+    - Sincronización offline-first.
+    - Desacoplamiento de UI y Lógica de Negocio (Model-View-Presenter).
 
 ## 🚀 Cómo usar este repositorio
 
 ### Para Humanos
 
-Este repositorio es la **Fuente de Verdad**.
-
-- Consulta `AGENTES.md` para ver las reglas de "Constitución" de la IA.
-- Consulta `LOG_DESARROLLO.md` para ver la evolución del sistema.
+Este repositorio es la **Fuente de Verdad** del proyecto.
+Descarga el **[Manual de Skills](MANUAL_SKILLS.docx)** para tener una referencia rápida de qué puede hacer tu asistente IA por ti.
 
 ### Para Agentes de IA
 
@@ -89,11 +93,7 @@ cp -r ArainforIA/.skills /ruta/a/tu/nuevo/proyecto/
 
  > [!IMPORTANT]
  > **Para desarrolladores y mantenedores**:
- > Consulta el [README Técnico del Sistema de Skills](.skills/README.md) para ver:
- >
- > - Instrucciones de instalación y portabilidad.
- > - Estructura detallada de directorios (`/scripts`, `/registry`, `/templates`).
- > - Guías para crear nuevas skills compatibles con **OpenSpec**.
+ > Consulta el [README Técnico del Sistema de Skills](.skills/README.md) para ver detalles de implementación y OpenSpec.
 
 ### 3. Flujo de Trabajo Simplificado
 
@@ -109,5 +109,5 @@ cp -r ArainforIA/.skills /ruta/a/tu/nuevo/proyecto/
 
  ---
  **Maintainer**: Manuel José López & Gemini Agent
- **Version**: 2.0.0 (January 2026)
+ **Version**: 2.1.0 (Enero 2026) - *Fully Synced*
  **License**: Proprietary / ARAINFORIA Internal Use
