@@ -5,6 +5,24 @@ Todos los cambios notables en el sistema de skills serán documentados en este a
 El formato está basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.0.0/),
 y este proyecto adhiere a [Semantic Versioning](https://semver.org/lang/es/).
 
+## [1.8.1] - 2026-01-08
+
+### Añadido (Mejoras OpenSpec)
+
+- **AGENTS.md**: Guía para asistentes de IA para entender el sistema de skills automáticamente.
+- **Comandos Slash** (.agent/workflows/):
+  - `/skill-list` - Listar todas las skills
+  - `/skill-run` - Ejecutar skill específica
+  - `/skill-help` - Ver ayuda de skill
+  - `/skill-search` - Buscar skills por palabra clave
+  - `/skill-pipeline` - Ejecutar pipelines compuestos
+
+### Inspiración
+
+Mejoras basadas en [OpenSpec](https://github.com/Fission-AI/OpenSpec) - Spec-driven development para IAs.
+
+---
+
 ## [1.8.0] - 2026-01-08
 
 ### Añadido
