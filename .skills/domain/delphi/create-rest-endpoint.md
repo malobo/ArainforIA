@@ -1,108 +1,65 @@
 ---
-name: create-rest-endpoint
+id: skill-create-rest-endpoint
+name: Crear Endpoint REST (mORMot 2)
 version: 1.0.0
 category: domain/delphi
-tags: [rest, api, mormot, servidor, endpoint]
-author: ARAINFORIA
-created: 2026-01-08
-complexity: 7
+priority: high
+last_updated: 2026-01-08
 triggers:
   - "crear api"
   - "endpoint rest"
   - "servicio web"
-  - "exponer datos"
+  - "exponer funcion"
 ---
 
-# Crear Endpoint REST
+# 🌐 Crear Endpoint REST (mORMot 2)
 
-## Descripción
+<context>
+Esta skill guía en la creación de servicios RESTful utilizando el framework `mORMot 2`. Se enfoca en la definición de interfaces de servicio (SOA) que se exponen automáticamente como endpoints JSON.
+</context>
 
-Crea endpoints REST con mORMot2 para exponer funcionalidad como API.
+<instruction>
+Pasos para exponer una función como REST:
 
-## Estructura Básica
+1. **Definir la Interfaz (SOA)**:
+    * Debe heredar de `IInvokable` (o `IServiceAbstract` en mORMot).
+    * Los métodos deben usar tipos simples o DTOs serializables.
+    * Añadir `const` a parámetros de entrada y `out` o `result` para salida.
+2. **Implementar la Clase**:
+    * Clase que implementa la interfaz.
+3. **Registrar en el Servidor**:
+    * `RestServer.ServiceDefine(TMiServicio, [IMiServicio], sicShared);`
 
-```pascal
-uses
-  mormot.core.base,
-  mormot.core.json,
-  mormot.rest.http.server,
-  mormot.rest.server;
+</instruction>
 
+<examples>
+User: "Crea un endpoint que sume dos números"
+Agent:
+```delphi
+uses mormot.core.base, mormot.core.service, mormot.core.data;
+
+// 1. Definición Interfaz
 type
-  TApiServer = class(TRestServerFullMemory)
-  published
-    function GetClientes(Ctxt: TRestServerUriContext): Integer;
-    function GetCliente(Ctxt: TRestServerUriContext): Integer;
-    function PostCliente(Ctxt: TRestServerUriContext): Integer;
+  ICalculadora = interface(IInvokable)
+    ['{GUID-GENERATE-HERE}']
+    function Sumar(const A, B: Double): Double;
   end;
-```
 
-## Implementar Endpoints
-
-```pascal
-function TApiServer.GetClientes(Ctxt: TRestServerUriContext): Integer;
-var
-  Clientes: TClienteDTOArray;
-begin
-  Clientes := CargarTodosClientes;
-  Ctxt.Returns(DynArraySaveJson(Clientes, TypeInfo(TClienteDTOArray)));
-  Result := HTTP_SUCCESS;
-end;
-
-function TApiServer.GetCliente(Ctxt: TRestServerUriContext): Integer;
-var
-  Id: Integer;
-  Cliente: TClienteDTO;
-begin
-  Id := Ctxt.InputInt['id'];
-  if Id > 0 then
-  begin
-    Cliente := CargarCliente(Id);
-    Ctxt.Returns(RecordSaveJson(Cliente, TypeInfo(TClienteDTO)));
-    Result := HTTP_SUCCESS;
-  end
-  else
-    Result := HTTP_BADREQUEST;
-end;
-
-function TApiServer.PostCliente(Ctxt: TRestServerUriContext): Integer;
-var
-  Cliente: TClienteDTO;
-begin
-  RecordLoadJson(Cliente, Ctxt.InputUtf8, TypeInfo(TClienteDTO));
-  GuardarCliente(Cliente);
-  Ctxt.Returns('{"success": true}');
-  Result := HTTP_CREATED;
-end;
-```
-
-## Iniciar Servidor
-
-```pascal
-var
-  Server: TApiServer;
-  HttpServer: TRestHttpServer;
-begin
-  Server := TApiServer.Create(nil, 'api');
-  HttpServer := TRestHttpServer.Create('8080', Server);
-  try
-    WriteLn('API escuchando en http://localhost:8080');
-    ReadLn;
-  finally
-    HttpServer.Free;
-    Server.Free;
+// 2. Implementación
+type
+  TCalculadoraService = class(TInterfacedObject, ICalculadora)
+  public
+    function Sumar(const A, B: Double): Double;
   end;
+
+function TCalculadoraService.Sumar(const A, B: Double): Double;
+begin
+  Result := A + B;
 end;
+
+// 3. Registro (En el Server Start)
+// El endpoint será accesible en: GET /api/Calculadora/Sumar?A=10&B=20
+MyRestServer.ServiceDefine(TCalculadoraService, [ICalculadora], sicShared);
+
 ```
-
-## Endpoints Resultantes
-
-| Método | URL | Acción |
-| ------ | --- | ------ |
-| GET | `/api/clientes` | Listar todos |
-| GET | `/api/cliente?id=1` | Obtener uno |
-| POST | `/api/cliente` | Crear nuevo |
-
----
-
-**Estado**: stable
+</examples>

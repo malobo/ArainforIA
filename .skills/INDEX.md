@@ -14,6 +14,8 @@
   - *Triggers: `crear dto`, `json structure`, `serializar objeto`...*
 - ✨ [Normativa VERIFACTU](core/verifactu.md) Rx **ALTA**
   - *Triggers: `verifactu`, `ley antifraude`, `encadenamiento facturas`...*
+- ✨ [Refactorizar a MVP (Model-View-Presenter)](core/refactoring/refactor-to-mvp.md) Rx **ALTA**
+  - *Triggers: `separar logica`, `mvp pattern`, `desacoplar form`...*
 - ✨ [Sincronizar Registro OpenSpec](core/integration/sync-openspec-registry.md) Rx **ALTA**
   - *Triggers: `sincronizar registro`, `actualizar tools.yaml`, `generar openspec`...*
 - ✨ [mORMot 2 Framework](core/mormot.md) Rx **ALTA**
@@ -29,8 +31,6 @@
 -  [generate-unit-tests](core/generation/generate-unit-tests.md) 
 -  [log-development-activity](core/integration/log-development-activity.md) 
 -  [query-notion-knowledge](core/integration/query-notion-knowledge.md) 
--  [refactor-to-mvp](core/refactoring/refactor-to-mvp.md) 
-  - *Triggers: `separar logica`, `mvp pattern`, `desacoplar form`...*
 -  [sync-notion-skills](core/integration/sync-notion-skills.md) 
 -  [sync-project-docs](core/integration/sync-project-docs.md) 
 -  [sync-skills-registry](core/analysis/sync-skills-registry.md) 

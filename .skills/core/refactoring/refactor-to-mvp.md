@@ -1,138 +1,82 @@
 ---
-name: refactor-to-mvp
+id: skill-refactor-to-mvp
+name: Refactorizar a MVP (Model-View-Presenter)
 version: 1.0.0
 category: core/refactoring
-tags: [mvp, arquitectura, separar, desacoplar, patron]
-author: ARAINFORIA
-created: 2026-01-08
-complexity: 7
+priority: high
+last_updated: 2026-01-08
 triggers:
   - "separar logica"
   - "mvp pattern"
   - "desacoplar form"
-  - "arquitectura limpia"
+  - "limpiar formulario"
 ---
 
-# Refactorizar a MVP
+# 🏗️ Refactorizar a MVP (Model-View-Presenter)
 
-## Descripción
+<context>
+El patrón MVP es ideal para modernizar aplicaciones Delphi VCL heredadas. Permite sacar la lógica de negocio del "Code-Behind" del Form (`.pas`) y moverla a una clase `Presenter`, dejando el Form (`View`) solo para entrada/salida.
+</context>
 
-Guía para separar lógica de negocio de UI usando patrón Model-View-Presenter.
+<instruction>
+Pasos para refactorizar un Form a MVP:
 
-## Arquitectura MVP
+1. **Definir la Interfaz de la Vista (`IView`)**:
+    * Crear una `interface` que declare lo que el Presenter necesita del Form (Getters/Setters de datos, métodos para mostrar/ocultar controles).
+    * Hacer que el Form implemente esta interfaz.
+2. **Crear el Presenter**:
+    * Clase pura (sin dependencia de `Vcl.Forms`).
+    * Constructor recibe `IView`.
+    * Métodos públicos para acciones (`Guardar`, `Buscar`).
+3. **Vincular**:
+    * En `FormCreate`, instanciar el Presenter.
+    * En eventos de botones (`OnClick`), llamar al métdo del Presenter.
 
-```text
-┌─────────────┐     ┌─────────────┐     ┌─────────────┐
-│    VIEW     │────▶│  PRESENTER  │────▶│    MODEL    │
-│  (Form)     │◀────│  (Logic)    │◀────│   (Data)    │
-└─────────────┘     └─────────────┘     └─────────────┘
-```
+</instruction>
 
-## Paso 1: Definir Interfaces
-
-```pascal
-// Vista (Form)
+<examples>
+User: "Saca la lógica de guardar del FormFactura a un Presenter"
+Agent:
+```delphi
+// 1. Interfaz (Contrato)
 type
-  IClienteView = interface
-    procedure MostrarCliente(const C: TClienteDTO);
-    procedure MostrarError(const Msg: string);
-    procedure MostrarExito(const Msg: string);
-    function ObtenerDatosFormulario: TClienteDTO;
+  IFacturaView = interface
+    function GetClienteID: Integer;
+    function GetTotal: Double;
+    procedure ShowError(const Msg: string);
   end;
 
-// Presenter
+// 2. Presenter (Lógica)
 type
-  IClientePresenter = interface
-    procedure CargarCliente(Id: Integer);
-    procedure GuardarCliente;
-    procedure EliminarCliente;
-  end;
-```
-
-## Paso 2: Implementar Model
-
-```pascal
-type
-  TClienteModel = class
-  public
-    function ObtenerPorId(Id: Integer): TClienteDTO;
-    procedure Guardar(const C: TClienteDTO);
-    procedure Eliminar(Id: Integer);
-    function Validar(const C: TClienteDTO): TStringList;
-  end;
-```
-
-## Paso 3: Implementar Presenter
-
-```pascal
-type
-  TClientePresenter = class(TInterfacedObject, IClientePresenter)
+  TFacturaPresenter = class
   private
-    FView: IClienteView;
-    FModel: TClienteModel;
+    FView: IFacturaView;
   public
-    constructor Create(AView: IClienteView);
-    destructor Destroy; override;
-    
-    procedure CargarCliente(Id: Integer);
-    procedure GuardarCliente;
+    constructor Create(AView: IFacturaView);
+    procedure GuardarFactura;
   end;
 
-procedure TClientePresenter.GuardarCliente;
-var
-  Cliente: TClienteDTO;
-  Errores: TStringList;
+procedure TFacturaPresenter.GuardarFactura;
 begin
-  Cliente := FView.ObtenerDatosFormulario;
-  Errores := FModel.Validar(Cliente);
-  try
-    if Errores.Count > 0 then
-      FView.MostrarError(Errores.Text)
-    else
-    begin
-      FModel.Guardar(Cliente);
-      FView.MostrarExito('Cliente guardado');
-    end;
-  finally
-    Errores.Free;
+  if FView.GetTotal <= 0 then
+  begin
+    FView.ShowError('El total debe ser mayor a 0'); // Lógica de UI abstracta
+    Exit;
   end;
+  // ... lógica de guardado en BD ...
 end;
-```
 
-## Paso 4: Adaptar Form
-
-```pascal
+// 3. Form (Implementación)
 type
-  TfrmCliente = class(TForm, IClienteView)
-  private
-    FPresenter: IClientePresenter;
-    // IClienteView
-    procedure MostrarCliente(const C: TClienteDTO);
-    procedure MostrarError(const Msg: string);
-    function ObtenerDatosFormulario: TClienteDTO;
-  public
-    procedure AfterConstruction; override;
+  TFormFactura = class(TForm, IFacturaView)
+    procedure BtnGuardarClick(Sender: TObject);
+  // ...
   end;
 
-procedure TfrmCliente.AfterConstruction;
+procedure TFormFactura.BtnGuardarClick(Sender: TObject);
 begin
-  inherited;
-  FPresenter := TClientePresenter.Create(Self);
+  FPresenter.GuardarFactura;
 end;
 
-procedure TfrmCliente.btnGuardarClick(Sender: TObject);
-begin
-  FPresenter.GuardarCliente; // Delegar al Presenter
-end;
 ```
-
-## Beneficios
-
-- Lógica testeable sin UI
-- Forms más simples
-- Reutilización de código
-- Mantenimiento más fácil
-
----
-
-**Estado**: stable
+</examples>

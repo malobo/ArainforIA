@@ -283,9 +283,9 @@ components:
         target_class:
           type: string, opcional
           description: Clase destino (si aplica)
-    refactor-to-mvp:
-      name: refactor-to-mvp
-      description: '## Descripción'
+    refactorizar-a-mvp-(model-view-presenter):
+      name: Refactorizar a MVP (Model-View-Presenter)
+      description: <context>
       version: 1.0.0
       labels:
       - core/refactoring
@@ -325,9 +325,9 @@ components:
         generate_rollback:
           type: boolean, opcional
           description: 'Generar script de rollback (default: true)'
-    debug-connection-issue:
-      name: debug-connection-issue
-      description: '## Descripción'
+    depurar-conexión-base-de-datos:
+      name: Depurar Conexión Base de Datos
+      description: <context>
       version: 1.0.0
       labels:
       - domain/database
@@ -434,9 +434,9 @@ components:
         type: markdown
         uri: domain/delphi/components-inventory.md
       inputs: {}
-    create-rest-endpoint:
-      name: create-rest-endpoint
-      description: '## Descripción'
+    crear-endpoint-rest-(mormot-2):
+      name: Crear Endpoint REST (mORMot 2)
+      description: <context>
       version: 1.0.0
       labels:
       - domain/delphi

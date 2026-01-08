@@ -135,6 +135,12 @@ Este documento resume las ventajas estratégicas de evolucionar el sistema actua
 3. `domain/database/generate-data-export.md`: Exportación eficiente a CSV/Excel.
 4. `domain/database/implement-audit-trail.md`: Estrategias de auditoría (Triggers/Eventos).
 
+**Skills Arquitectura Avanzada (Camino 3) Implementadas**:
+
+1. `core/refactoring/refactor-to-mvp.md`: Patrón MVP para desacoplar UI/Lógica.
+2. `domain/delphi/create-rest-endpoint.md`: Exposición de servicios SOA con mORMot 2.
+3. `domain/database/debug-connection-issue.md`: Troubleshooting BDE/FireDAC.
+
 ### Próximos Pasos
 
 * [ ] Abordar la integración híbrida (PHP API).
