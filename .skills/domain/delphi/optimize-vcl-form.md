@@ -1,118 +1,44 @@
 ---
-name: optimize-vcl-form
+id: skill-optimize-vcl-form
+name: Optimización de Formularios VCL
 version: 1.0.0
 category: domain/delphi
-tags: [vcl, formulario, rendimiento, optimizacion, ui]
-author: ARAINFORIA
-created: 2026-01-08
-complexity: 5
+priority: high
+last_updated: 2026-01-08
 triggers:
   - "formulario lento"
   - "optimizar form"
   - "mejorar ui"
-  - "form pesado"
+  - "flickering"
 ---
 
-# Optimizar Formulario VCL
+# ⚡ Optimización de Formularios VCL
 
-## Descripción
+<context>
+Esta skill se enfoca en detectar cuellos de botella de rendimiento y problemas de UX en formularios VCL Delphi, aplicando técnicas como DoubleBuffering, carga diferida (Lazy Loading) y reducción de repintado.
+</context>
 
-Analiza y optimiza formularios VCL para mejorar rendimiento y UX.
+<instruction>
+Al analizar un formulario lento (`.pas` + `.dfm`):
 
-## Checklist de Optimización
+1. **Rendering & Flickering**:
+    * Activar `DoubleBuffered := True` en el Form o componentes contenedores (Panels, Grids) para evitar parpadeos.
+    * Usar `BeginUpdate` y `EndUpdate` al llenar listas (TStrings, TreeViews, Grids).
 
-### Carga Inicial
+2. **Eventos Críticos**:
+    * Revisar `OnDrawCell` o `OnPaint`: Deben ser extremadamente rápidos. No hacer consultas SQL dentro de estos eventos.
+    * Revisar `OnResize`: Evitar cálculos pesados aquí.
 
-- [ ] Usar `BeginUpdate`/`EndUpdate` en grids y listas
-- [ ] Cargar datos bajo demanda (lazy loading)
-- [ ] Evitar `AutoSize` en componentes complejos
-- [ ] Diferir carga de imágenes/recursos
+3. **Gestión de Recursos**:
+    * Destruir objetos creados dinámicamente (`FreeAndNil`).
+    * Si el form es muy pesado, considerar crearlo solo cuando se necesita (`Application.CreateForm` vs `Auto-create forms`).
 
-### Memoria
+4. **Acceso a Datos**:
+    * Abrir Datasets (`Open`) solo cuando sean visibles.
+    * Usar `DisableControls` / `EnableControls` en el Dataset durante procesos batch.
+</instruction>
 
-- [ ] Liberar objetos en `OnDestroy`
-- [ ] No crear componentes en bucles
-- [ ] Usar `FreeAndNil` en lugar de `Free`
-
-### UI/UX
-
-- [ ] Usar `Application.ProcessMessages` con moderación
-- [ ] Implementar indicadores de progreso
-- [ ] Evitar más de 50 controles visibles
-
-## Patrones de Optimización
-
-### Lazy Loading de Datos
-
-```pascal
-procedure TForm1.FormShow(Sender: TObject);
-begin
-  // NO cargar todo al inicio
-  // Solo cargar cuando sea necesario
-end;
-
-procedure TForm1.TabSheet2Show(Sender: TObject);
-begin
-  if not FDatosTab2Cargados then
-  begin
-    CargarDatosTab2;
-    FDatosTab2Cargados := True;
-  end;
-end;
-```
-
-### BeginUpdate/EndUpdate
-
-```pascal
-procedure TForm1.LlenarGrid;
-begin
-  DBGrid1.BeginUpdate;
-  try
-    Query1.DisableControls;
-    try
-      Query1.Open;
-    finally
-      Query1.EnableControls;
-    end;
-  finally
-    DBGrid1.EndUpdate;
-  end;
-end;
-```
-
-### Crear Controles Dinámicamente
-
-```pascal
-// ANTES: 100 labels en diseño
-// DESPUÉS: Crear bajo demanda
-procedure TForm1.CrearEtiquetas(Count: Integer);
-var
-  I: Integer;
-  Lbl: TLabel;
-begin
-  for I := 0 to Count - 1 do
-  begin
-    Lbl := TLabel.Create(Self);
-    Lbl.Parent := ScrollBox1;
-    Lbl.Top := I * 20;
-    Lbl.Caption := 'Item ' + IntToStr(I);
-  end;
-end;
-```
-
-## Métricas de Rendimiento
-
-```pascal
-var
-  T: TStopwatch;
-begin
-  T := TStopwatch.StartNew;
-  // Código a medir
-  T.Stop;
-  ShowMessage('Tiempo: ' + IntToStr(T.ElapsedMilliseconds) + 'ms');
-end;
-```
-
----
-
-**Estado**: stable
+<examples>
+User: "El formulario de Lista de Facturas tarda mucho en abrirse y parpadea"
+Agent: "Para el parpadeo (flickering), añade `DBGrid1.DoubleBuffered := True;` en el `FormCreate`. Para la lentitud, veo que haces un `Query.Open` el `FormShow`. ¿Podrías moverlo o usar paginación? Además, asegúrate de usar `DisableControls` si recorres el grid."
+</examples>

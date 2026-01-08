@@ -305,9 +305,9 @@ components:
         type: markdown
         uri: core/refactoring/refactor-to-mvp.md
       inputs: {}
-    convert-sql-paradox:
-      name: convert-sql-paradox
-      description: '## Descripción'
+    convertir-sql-a-paradox/bde:
+      name: Convertir SQL a Paradox/BDE
+      description: <context>
       version: 1.0.0
       labels:
       - domain/database
@@ -486,28 +486,16 @@ components:
         type: markdown
         uri: domain/delphi/delphi-expert-context.md
       inputs: {}
-    generate-api-client:
-      name: generate-api-client
-      description: '## Descripción'
+    generador-de-clientes-rest-delphi:
+      name: Generador de Clientes REST Delphi
+      description: <context>
       version: 1.0.0
       labels:
       - domain/delphi
       implementation:
         type: markdown
         uri: domain/delphi/generate-api-client.md
-      inputs:
-        base_url:
-          type: string
-          description: URL base de la API
-        endpoints:
-          type: list
-          description: Lista de endpoints a implementar
-        auth_type:
-          type: enum
-          description: none | api_key | oauth2 | certificate
-        response_format:
-          type: enum
-          description: json | xml
+      inputs: {}
     generate-exception-handler:
       name: generate-exception-handler
       description: '## Descripción'
@@ -538,9 +526,9 @@ components:
         type: markdown
         uri: domain/delphi/implement-design-pattern.md
       inputs: {}
-    optimize-vcl-form:
-      name: optimize-vcl-form
-      description: '## Descripción'
+    optimización-de-formularios-vcl:
+      name: Optimización de Formularios VCL
+      description: <context>
       version: 1.0.0
       labels:
       - domain/delphi
@@ -787,9 +775,9 @@ components:
         type: markdown
         uri: workflows/maintenance/sync-all.md
       inputs: {}
-    migrate-bde-firedac:
-      name: migrate-bde-firedac
-      description: '## Descripción'
+    migración-bde-a-firedac:
+      name: Migración BDE a FireDAC
+      description: <context>
       version: 1.0.0
       labels:
       - workflows/migration

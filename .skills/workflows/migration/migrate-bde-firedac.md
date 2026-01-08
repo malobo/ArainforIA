@@ -1,127 +1,54 @@
 ---
-name: migrate-bde-firedac
+id: skill-migrate-bde-firedac
+name: Migración BDE a FireDAC
 version: 1.0.0
 category: workflows/migration
-tags: [migracion, bde, firedac, paradox, modernizar]
-author: ARAINFORIA
-created: 2026-01-08
-complexity: 8
+priority: high
+last_updated: 2026-01-08
 triggers:
   - "migrar bde"
   - "eliminar paradox"
   - "modernizar datos"
-  - "firedac migracion"
+  - "usar firedac"
 ---
 
-# Migración BDE → FireDAC
+# 🚀 Workflow: Migración BDE a FireDAC
 
-## Descripción
+<context>
+Este workflow detalla los pasos seguros para migrar componentes de acceso a datos legacy (TTable, TQuery del BDE) a la suite moderna FireDAC (TFDTable, TFDQuery), eliminando la dependencia del BDE Administrator.
+</context>
 
-Workflow paso a paso para migrar de BDE/Paradox a FireDAC.
+<instruction>
+El proceso de migración debe seguir estas fases:
 
-## Fases del Workflow
+## 1. Preparación de Conexión
 
-### Fase 1: Preparación
+* Reemplazar `TDatabase` por `TFDConnection`.
+* Configurar el driver (SQLite, MSSQL, MySQL) en `TFDPhys...DriverLink`.
+* Añadir `TFDGUIxWaitCursor`.
 
-1. **Inventario de componentes BDE**
+## 2. Reemplazo de Componentes
 
-   ```text
-   Buscar en el proyecto:
-   - TTable → TFDTable
-   - TQuery → TFDQuery
-   - TDatabase → TFDConnection
-   - TSession → (no necesario)
-   - TBatchMove → TFDBatchMove
-   ```
+| BDE Component | FireDAC Component | Notas |
+| :--- | :--- | :--- |
+| `TTable` | `TFDTable` | Puede requerir cambiar `TableName`. |
+| `TQuery` | `TFDQuery` | Verificar sintaxis SQL (ver `skill-convert-sql-paradox`). |
+| `TStoredProc` | `TFDStoredProc` | |
+| `TUpdateSQL` | `TFDUpdateSQL` | |
 
-2. **Backup completo**
+## 3. Ajuste de Código
 
-   ```text
-   - Copiar todos los archivos .pas, .dfm
-   - Exportar todas las tablas .DB a SQL/CSV
-   ```
+* **Mapeo de Tipos**: Revisar campos `TFloatField` vs `TFMTBCDField`. FireDAC es más estricto con la precisión numérico.
+* **Transacciones**: FireDAC maneja transacciones de forma diferente. Usar `TFDTransaction` explícito si es necesario, o `TxOptions`.
+* **CachedUpdates**: FireDAC usa `CachedUpdates` de forma similar, verificar `ApplyUpdates`.
 
-### Fase 2: Mapeo de Componentes
+## 4. Limpieza
 
-| BDE | FireDAC | Notas |
-| --- | ------- | ----- |
-| `TTable` | `TFDTable` | Casi 1:1 |
-| `TQuery` | `TFDQuery` | Cambios menores |
-| `TDatabase` | `TFDConnection` | Configuración diferente |
-| `TDataSource` | `TDataSource` | Sin cambios |
-| `TDBGrid` | `TDBGrid` | Sin cambios |
+* Eliminar `BDE` de la cláusula `uses`.
+* Eliminar referencias a `DBTables`.
+</instruction>
 
-### Fase 3: Cambios en Uses
-
-```pascal
-// Antes (BDE)
-uses
-  DBTables, BDE;
-
-// Después (FireDAC)
-uses
-  FireDAC.Stan.Intf, FireDAC.Stan.Option,
-  FireDAC.Stan.Error, FireDAC.UI.Intf,
-  FireDAC.Phys.Intf, FireDAC.Stan.Def,
-  FireDAC.Stan.Pool, FireDAC.Stan.Async,
-  FireDAC.Phys, FireDAC.Comp.Client,
-  FireDAC.Comp.DataSet;
-```
-
-### Fase 4: Configurar Conexión
-
-```pascal
-// FireDAC para Paradox
-FDConnection1.DriverName := 'ODBC';
-FDConnection1.Params.Values['DataSource'] := 'ParadoxDSN';
-
-// O usar driver nativo (si disponible)
-FDConnection1.DriverName := 'Paradox';
-FDConnection1.Params.Values['DatabaseName'] := 'C:\MisDatos';
-```
-
-### Fase 5: Cambios de Código
-
-```pascal
-// ANTES (BDE)
-Table1.DatabaseName := 'ALIAS_BD';
-Table1.TableName := 'CLIENTES.DB';
-Table1.Open;
-
-// DESPUÉS (FireDAC)
-FDTable1.Connection := FDConnection1;
-FDTable1.TableName := 'CLIENTES';
-FDTable1.Open;
-```
-
-```pascal
-// ANTES (BDE Query)
-Query1.DatabaseName := 'ALIAS_BD';
-Query1.SQL.Text := 'SELECT * FROM Clientes';
-Query1.Open;
-
-// DESPUÉS (FireDAC)
-FDQuery1.Connection := FDConnection1;
-FDQuery1.SQL.Text := 'SELECT * FROM Clientes';
-FDQuery1.Open;
-```
-
-### Fase 6: Verificación
-
-- [ ] Todas las tablas abren correctamente
-- [ ] Las consultas devuelven datos
-- [ ] Los filtros funcionan
-- [ ] Las inserciones/actualizaciones funcionan
-- [ ] Los reportes se generan correctamente
-
-## Problemas Comunes
-
-| Problema | Solución |
-| -------- | -------- |
-| "Table does not exist" | Verificar TableName sin extensión |
-| "Driver not found" | Instalar driver ODBC Paradox |
-| "Field type mismatch" | Revisar tipos de datos |
-
----
-
-**Estado**: stable
+<examples>
+User: "Ayúdame a migrar este DataModule que usa TQuery"
+Agent: "Perfecto. Primero, añade un TFDConnection configurado a tu DataModule. Luego, reemplazaremos los TQuery uno por uno. ¿Puedes mostrarme el primer TQuery y su SQL?"
+</examples>
