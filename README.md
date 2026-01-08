@@ -74,127 +74,40 @@ cp -r ArainforIA/.skills /ruta/a/tu/nuevo/proyecto/
 
 ---
 
-## Guía Práctica: Cómo Usar el Sistema de Skills
+## 🧠 Filosofía del Sistema: "Context as Code"
 
-### 1. Introducción: ¿Qué es un "Skill" y Por Qué es Tan Útil?
+### 1. Introducción Conceptual
 
-En el contexto de la interacción con una Inteligencia Artificial (IA), un **"skill"** es un bloque de conocimiento o un conjunto de instrucciones autocontenido y reutilizable que se almacena en un archivo.
+ En ARAINFORIA, tratamos el contexto de la IA como código fuente. En lugar de instrucciones repetitivas, utilizamos **Skills**: módulos de conocimiento versionados y estructurados.
 
-**El Problema Principal que Resuelve:**
+- **Problema**: La "memoria" limitada y las alucinaciones de los LLMs.
+- **Solución**: Inyección precisa de documentación técnica solo cuando se necesita.
 
-Las IAs tienen una "memoria a corto plazo" (ventana de contexto) limitada. No puedes pegar miles de líneas de documentación en cada pregunta. Hacerlo es ineficiente, costoso (en tokens) y propenso a errores.
+### 2. Referencia Técnica
 
-**La Solución del Sistema de Skills:**
+ Toda la documentación técnica, scripts de mantenimiento y guías de desarrollo se encuentran en el directorio `.skills/`.
 
-En lugar de repetir el contexto, lo almacenamos en archivos bien estructurados. Luego, simplemente le decimos a la IA: *"Para esta tarea, usa el conocimiento del archivo `mi-skill.md`"*.
+ > [!IMPORTANT]
+ > **Para desarrolladores y mantenedores**:
+ > Consulta el [README Técnico del Sistema de Skills](.skills/README.md) para ver:
+ >
+ > - Instrucciones de instalación y portabilidad.
+ > - Estructura detallada de directorios (`/scripts`, `/registry`, `/templates`).
+ > - Guías para crear nuevas skills compatibles con **OpenSpec**.
 
-**Beneficios Clave:**
+### 3. Flujo de Trabajo Simplificado
 
-- **Ahorro de Contexto:** Reduce drásticamente la cantidad de texto que necesitas enviar en cada instrucción.
-- **Consistencia:** La IA siempre recibe la misma información base para una tarea, lo que produce resultados más predecibles.
-- **Mantenibilidad:** Si una norma o un proyecto cambia, solo actualizas un archivo (el skill), no cientos de instrucciones pasadas.
-- **Reutilización:** El mismo skill puede ser usado por diferentes IAs o en diferentes conversaciones.
+ 1. **Consulta**: La IA busca en el índice (`.skills/INDEX.md`).
+ 2. **Carga**: Si detecta una tarea conocida (ej: "Analizar unidad Delphi"), carga la skill correspondiente.
+ 3. **Ejecución**: Sigue los pasos estrictos definidos en el archivo `.md`.
 
----
+ Para regenerar el índice después de cambios:
 
-### 2. La Arquitectura: Una Estructura de Carpetas Inteligente
+ ```powershell
+ python .skills/scripts/generate_index.py
+ ```
 
-La organización es fundamental. Una buena estructura permite a la IA (y a ti) encontrar rápidamente el contexto correcto. La que hemos implementado es un excelente punto de partida:
-
-```text
-.skills/
-├── core/            # Conocimiento fundamental y transversal
-├── projects/        # Contexto específico de cada proyecto
-├── workflows/       # Guías paso a paso para tareas comunes
-├── _template.md     # Plantilla para crear nuevos skills
-├── generate_index.py# Script para automatizar el índice
-└── index.md         # El índice de todos los skills (generado automáticamente)
-```
-
-- **`/core`**: Para el conocimiento que no cambia a menudo pero es crucial. Ejemplos: guías de estilo de programación, normativas legales (Verifactu), configuración de herramientas.
-- **`/projects`**: Un archivo por cada proyecto en el que trabajas. Contiene el resumen, la arquitectura, la ubicación de los archivos, etc.
-- **`/workflows`**: Para tareas repetitivas. ¿Cómo se compila un proyecto? ¿Cómo se despliega a producción? Cada uno de estos flujos de trabajo es un skill.
-
----
-
-### 3. La Anatomía de un Skill: El Archivo Markdown
-
-Cada skill es un archivo `.md` que sigue una estructura predecible. Esto ayuda a la IA a analizarlo eficientemente.
-
-```yaml
----
-# Metadatos para la automatización (Frontmatter YAML)
-id: skill-unico-id # Identificador único
-name: Nombre Legible del Skill # Nombre para mostrar
-version: 1.2 # Versión del skill
-category: core | project | workflow # Categoría a la que pertenece
-priority: critical | high | medium | low # Importancia del skill
-last_updated: YYYY-MM-DD # Fecha de la última actualización
----
-
-# Título Principal del Skill
-
-## Descripción
-¿Qué es este skill y qué problema resuelve?
-
-## Contexto Clave
-Una lista de 3-5 puntos críticos que la IA debe entender inmediatamente.
-
-## Instrucciones / Reglas
-Un conjunto de reglas numeradas y obligatorias sobre cómo usar la información. ¡Sé directo! "HAZ esto", "NUNCA hagas aquello".
-
-## Recursos Relacionados
-Enlaces a otros skills o archivos importantes para crear una red de conocimiento.
-
-## Historial de Revisiones
-Un registro de cambios para entender la evolución del skill.
-```
-
----
-
-### 4. El Flujo de Trabajo en la Práctica
-
-#### Paso 1: Crear o Actualizar un Skill
-
-1. Copia `_template.md` a un nuevo archivo (ej. `projects/nuevo_proyecto.md`).
-2. Rellena los metadatos YAML.
-3. Completa las secciones de Markdown con información clara y concisa.
-
-#### Paso 2: Mantener el Índice Actualizado
-
-Después de crear, modificar o eliminar uno o más skills, ejecuta el script de Python:
-
-```shell
-python .skills/generate_index.py
-```
-
-Esto regenerará `index.md` para que refleje el estado actual de tu base de conocimiento.
-
-#### Paso 3: Usar el Skill con la IA
-
-Esta es la parte más simple. Tu instrucción a la IA ahora es mucho más corta y precisa.
-
-**Ejemplo MALO (sin skills):**
-> "Hola, necesito añadir una función al proyecto Aracostes. Recuerda que está en C:\Arainfor\ARAFAC, el dpr es Aracostes.dpr, la base de datos es SQLite en Costes.s3db, usa FireDAC y tienes que seguir la normativa Verifactu para el hash, que implica SHA-256..."
-
-**Ejemplo BUENO (con skills):**
-> "Vamos a trabajar en el proyecto ARAFAC. Por favor, carga el contexto del skill `projects/arafac.md`."
-
-La IA, si es capaz de leer archivos, cargará todo el contexto relevante y estará lista para trabajar de manera consistente y alineada con tus estándares.
-
----
-
-### Conclusión: Trata tu Contexto como Código
-
-Este sistema te anima a tratar tu conocimiento y contexto **como si fuera código fuente**:
-
-- **Es versionable** (puedes usar Git).
-- **Es modular**.
-- **Es mantenible**.
-
-Al adoptar esta mentalidad, potencias enormemente tu colaboración con cualquier asistente de IA.
-
----
-**Maintainer**: Manuel José López & Gemini Agent
-**Version**: 2.0.0 (January 2026)
-**License**: Proprietary / ARAINFORIA Internal Use
+ ---
+ **Maintainer**: Manuel José López & Gemini Agent
+ **Version**: 2.0.0 (January 2026)
+ **License**: Proprietary / ARAINFORIA Internal Use

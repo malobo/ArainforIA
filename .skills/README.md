@@ -41,7 +41,7 @@ Consulta el [Índice Maestro](./INDEX.md) o ejecuta:
 Copia la plantilla y sigue las [Guías de Creación](./GUIDELINES.md):
 
 ```powershell
-Copy-Item ".skills/templates/skill-template.md" ".skills/domain/custom/nueva-skill.md"
+Copy-Item ".skills/templates/skill-template-v2.md" ".skills/domain/custom/nueva-skill.md"
 ```
 
 ## 📁 Estructura del Sistema
@@ -95,5 +95,5 @@ No requiere dependencias externas más allá de un agente capaz de leer archivos
 - [Historial de Cambios](./CHANGELOG.md)
 
 ---
-**Versión del Sistema**: 1.6.0
+**Versión del Sistema**: 1.7.0
 **Mantenedor**: ARAINFORIA Team
