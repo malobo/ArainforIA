@@ -1,0 +1,815 @@
+openSpec: 1.0.0
+info:
+  title: ArainforIA Skills Registry
+  version: 1.0.0
+components:
+  tools:
+    convenciones-delphi-arainfor:
+      name: Convenciones Delphi Arainfor
+      description: <context>
+      version: '2.0'
+      labels:
+      - core
+      implementation:
+        type: markdown
+        uri: core/delphi.md
+      inputs: {}
+    delphi-rag-connector:
+      name: Delphi RAG Connector
+      description: <context>
+      version: '2.0'
+      labels:
+      - core
+      implementation:
+        type: markdown
+        uri: core/delphi_rag.md
+      inputs: {}
+    mormot-2-framework:
+      name: mORMot 2 Framework
+      description: <context>
+      version: '2.1'
+      labels:
+      - core
+      implementation:
+        type: markdown
+        uri: core/mormot.md
+      inputs: {}
+    notion-mcp-connector:
+      name: Notion MCP Connector
+      description: <context>
+      version: '2.0'
+      labels:
+      - core
+      implementation:
+        type: markdown
+        uri: core/notion.md
+      inputs: {}
+    normativa-verifactu:
+      name: Normativa VERIFACTU
+      description: <context>
+      version: '2.0'
+      labels:
+      - core
+      implementation:
+        type: markdown
+        uri: core/verifactu.md
+      inputs: {}
+    analyze-project-structure:
+      name: analyze-project-structure
+      description: '## Descripción'
+      version: 1.0.0
+      labels:
+      - core/analysis
+      implementation:
+        type: markdown
+        uri: core/analysis/analyze-project-structure.md
+      inputs: {}
+    sync-skills-registry:
+      name: sync-skills-registry
+      description: '## Descripción'
+      version: 1.1.0
+      labels:
+      - core/analysis
+      implementation:
+        type: markdown
+        uri: core/analysis/sync-skills-registry.md
+      inputs:
+        skills_root:
+          type: string, opcional
+          description: 'Ruta raíz (default: ".skills")'
+        update_index:
+          type: boolean, opcional
+          description: 'Actualizar index.json (default: true)'
+        dry_run:
+          type: boolean, opcional
+          description: 'Solo mostrar cambios (default: false)'
+    update-specs:
+      name: update-specs
+      description: '## Descripción'
+      version: 2.0.0
+      labels:
+      - core/analysis
+      implementation:
+        type: markdown
+        uri: core/analysis/update-specs.md
+      inputs: {}
+    validate-dfm-integrity:
+      name: validate-dfm-integrity
+      description: '## Descripción'
+      version: 1.0.0
+      labels:
+      - core/analysis
+      implementation:
+        type: markdown
+        uri: core/analysis/validate-dfm-integrity.md
+      inputs: {}
+    validate-skill-format:
+      name: validate-skill-format
+      description: '## Descripción'
+      version: 1.1.0
+      labels:
+      - core/analysis
+      implementation:
+        type: markdown
+        uri: core/analysis/validate-skill-format.md
+      inputs:
+        skill_path:
+          type: string
+          description: Ruta al archivo .md de la skill a validar
+        strict_mode:
+          type: boolean, opcional
+          description: 'Si true, requiere todas las secciones opcionales (default:
+            false)'
+        auto_fix:
+          type: boolean, opcional
+          description: 'Si true, sugiere correcciones automáticas (default: false)'
+    validate-system-health:
+      name: validate-system-health
+      description: '## Descripción'
+      version: 1.0.0
+      labels:
+      - core/analysis
+      implementation:
+        type: markdown
+        uri: core/analysis/validate-system-health.md
+      inputs: {}
+    generate-readme:
+      name: generate-readme
+      description: '## Descripción'
+      version: 1.1.0
+      labels:
+      - core/documentation
+      implementation:
+        type: markdown
+        uri: core/documentation/generate-readme.md
+      inputs:
+        path:
+          type: string
+          description: Ruta del directorio a documentar
+        focus:
+          type: string, opcional
+          description: '[developer|user] (default: developer)'
+    generate-boilerplate:
+      name: generate-boilerplate
+      description: '## Descripción'
+      version: 1.1.0
+      labels:
+      - core/generation
+      implementation:
+        type: markdown
+        uri: core/generation/generate-boilerplate.md
+      inputs:
+        component_type:
+          type: string
+          description: '[class|unit|form|interface|test]'
+        name:
+          type: string
+          description: 'Nombre del artefacto (ej: `TFacturaService`)'
+        language:
+          type: string, opcional
+          description: '[delphi|python|javascript] (default: context dependent)'
+        inheritance:
+          type: string, opcional
+          description: 'Clase padre (ej: `TInterfacedObject`)'
+    generate-json-dto:
+      name: generate-json-dto
+      description: '## Descripción'
+      version: 1.0.0
+      labels:
+      - core/generation
+      implementation:
+        type: markdown
+        uri: core/generation/generate-json-dto.md
+      inputs:
+        json_sample:
+          type: string
+          description: JSON de ejemplo
+        dto_name:
+          type: string
+          description: Nombre del tipo a generar
+        framework:
+          type: enum
+          description: mormot | system_json
+        style:
+          type: enum
+          description: record | class
+    generate-unit-tests:
+      name: generate-unit-tests
+      description: '## Descripción'
+      version: 1.0.0
+      labels:
+      - core/generation
+      implementation:
+        type: markdown
+        uri: core/generation/generate-unit-tests.md
+      inputs: {}
+    create-notion-issue:
+      name: create-notion-issue
+      description: '## Descripción'
+      version: 1.0.0
+      labels:
+      - core/integration
+      implementation:
+        type: markdown
+        uri: core/integration/create-notion-issue.md
+      inputs: {}
+    log-development-activity:
+      name: log-development-activity
+      description: '## Descripción'
+      version: 1.0.0
+      labels:
+      - core/integration
+      implementation:
+        type: markdown
+        uri: core/integration/log-development-activity.md
+      inputs: {}
+    query-notion-knowledge:
+      name: query-notion-knowledge
+      description: '## Descripción'
+      version: 1.0.0
+      labels:
+      - core/integration
+      implementation:
+        type: markdown
+        uri: core/integration/query-notion-knowledge.md
+      inputs: {}
+    sync-notion-skills:
+      name: sync-notion-skills
+      description: '## Descripción'
+      version: 1.0.0
+      labels:
+      - core/integration
+      implementation:
+        type: markdown
+        uri: core/integration/sync-notion-skills.md
+      inputs: {}
+    sync-openspec-registry:
+      name: sync-openspec-registry
+      description: '## Descripción'
+      version: 1.0.0
+      labels:
+      - core/integration
+      implementation:
+        type: markdown
+        uri: core/integration/sync-openspec-registry.md
+      inputs:
+        skills_root:
+          type: string
+          description: 'Ruta raíz de las skills (default: `.skills`)'
+        output_path:
+          type: string
+          description: 'Ruta del archivo de salida (default: `.skills/definitions/tools.yaml`)'
+    sync-project-docs:
+      name: sync-project-docs
+      description: '## Descripción'
+      version: 1.0.0
+      labels:
+      - core/integration
+      implementation:
+        type: markdown
+        uri: core/integration/sync-project-docs.md
+      inputs: {}
+    update-task-status:
+      name: update-task-status
+      description: '## Descripción'
+      version: 1.0.0
+      labels:
+      - core/integration
+      implementation:
+        type: markdown
+        uri: core/integration/update-task-status.md
+      inputs: {}
+    extract-method:
+      name: extract-method
+      description: '## Descripción'
+      version: 1.1.0
+      labels:
+      - core/refactoring
+      implementation:
+        type: markdown
+        uri: core/refactoring/extract-method.md
+      inputs:
+        source_code:
+          type: string
+          description: Código original
+        selection:
+          type: string
+          description: Fragmento a extraer
+        new_name:
+          type: string
+          description: Nombre del nuevo método
+        target_class:
+          type: string, opcional
+          description: Clase destino (si aplica)
+    refactor-to-mvp:
+      name: refactor-to-mvp
+      description: '## Descripción'
+      version: 1.0.0
+      labels:
+      - core/refactoring
+      implementation:
+        type: markdown
+        uri: core/refactoring/refactor-to-mvp.md
+      inputs: {}
+    convert-sql-paradox:
+      name: convert-sql-paradox
+      description: '## Descripción'
+      version: 1.0.0
+      labels:
+      - domain/database
+      implementation:
+        type: markdown
+        uri: domain/database/convert-sql-paradox.md
+      inputs: {}
+    create-database-migration:
+      name: create-database-migration
+      description: '## Descripción'
+      version: 1.0.0
+      labels:
+      - domain/database
+      implementation:
+        type: markdown
+        uri: domain/database/create-database-migration.md
+      inputs:
+        migration_name:
+          type: string
+          description: 'Nombre descriptivo de la migración (ej: "add_verifactu_fields")'
+        target_table:
+          type: string
+          description: Nombre de la tabla a modificar
+        changes:
+          type: array
+          description: Lista de cambios a aplicar
+        generate_rollback:
+          type: boolean, opcional
+          description: 'Generar script de rollback (default: true)'
+    debug-connection-issue:
+      name: debug-connection-issue
+      description: '## Descripción'
+      version: 1.0.0
+      labels:
+      - domain/database
+      implementation:
+        type: markdown
+        uri: domain/database/debug-connection-issue.md
+      inputs: {}
+    generate-crud-forms:
+      name: generate-crud-forms
+      description: '## Descripción'
+      version: 1.0.0
+      labels:
+      - domain/database
+      implementation:
+        type: markdown
+        uri: domain/database/generate-crud-forms.md
+      inputs: {}
+    generate-data-export:
+      name: generate-data-export
+      description: '## Descripción'
+      version: 1.0.0
+      labels:
+      - domain/database
+      implementation:
+        type: markdown
+        uri: domain/database/generate-data-export.md
+      inputs: {}
+    generate-gmprint-invoice:
+      name: generate-gmprint-invoice
+      description: '## Descripción'
+      version: 1.0.0
+      labels:
+      - domain/database
+      implementation:
+        type: markdown
+        uri: domain/database/generate-gmprint-invoice.md
+      inputs: {}
+    generate-report-template:
+      name: generate-report-template
+      description: '## Descripción'
+      version: 1.0.0
+      labels:
+      - domain/database
+      implementation:
+        type: markdown
+        uri: domain/database/generate-report-template.md
+      inputs: {}
+    generate-stored-procedure:
+      name: generate-stored-procedure
+      description: '## Descripción'
+      version: 1.0.0
+      labels:
+      - domain/database
+      implementation:
+        type: markdown
+        uri: domain/database/generate-stored-procedure.md
+      inputs: {}
+    implement-audit-trail:
+      name: implement-audit-trail
+      description: '## Descripción'
+      version: 1.0.0
+      labels:
+      - domain/database
+      implementation:
+        type: markdown
+        uri: domain/database/implement-audit-trail.md
+      inputs: {}
+    validate-paradox-table:
+      name: validate-paradox-table
+      description: '## Descripción'
+      version: 1.0.0
+      labels:
+      - domain/database
+      implementation:
+        type: markdown
+        uri: domain/database/validate-paradox-table.md
+      inputs: {}
+    analyze-delphi-unit:
+      name: analyze-delphi-unit
+      description: '## Descripción'
+      version: 1.1.0
+      labels:
+      - domain/delphi
+      implementation:
+        type: markdown
+        uri: domain/delphi/analyze-delphi-unit.md
+      inputs:
+        unit_path:
+          type: string
+          description: Ruta absoluta al archivo .pas a analizar
+        depth:
+          type: string, opcional
+          description: 'Nivel de análisis [basic|detailed|deep] (default: detailed)'
+        focus:
+          type: array, opcional
+          description: Aspectos específicos a analizar [structure|dependencies|quality|security]
+    inventario-de-componentes-(third-party):
+      name: Inventario de Componentes (Third-Party)
+      description: <context>
+      version: 1.0.0
+      labels:
+      - domain/delphi
+      implementation:
+        type: markdown
+        uri: domain/delphi/components-inventory.md
+      inputs: {}
+    create-rest-endpoint:
+      name: create-rest-endpoint
+      description: '## Descripción'
+      version: 1.0.0
+      labels:
+      - domain/delphi
+      implementation:
+        type: markdown
+        uri: domain/delphi/create-rest-endpoint.md
+      inputs: {}
+    debug-memory-leak:
+      name: debug-memory-leak
+      description: '## Descripción'
+      version: 1.0.0
+      labels:
+      - domain/delphi
+      implementation:
+        type: markdown
+        uri: domain/delphi/debug-memory-leak.md
+      inputs: {}
+    debug-runtime-error:
+      name: debug-runtime-error
+      description: '## Descripción'
+      version: 1.0.0
+      labels:
+      - domain/delphi
+      implementation:
+        type: markdown
+        uri: domain/delphi/debug-runtime-error.md
+      inputs: {}
+    delphi-expert-context:
+      name: delphi-expert-context
+      description: '## Descripción'
+      version: 1.1.0
+      labels:
+      - domain/delphi
+      implementation:
+        type: markdown
+        uri: domain/delphi/delphi-expert-context.md
+      inputs: {}
+    generate-api-client:
+      name: generate-api-client
+      description: '## Descripción'
+      version: 1.0.0
+      labels:
+      - domain/delphi
+      implementation:
+        type: markdown
+        uri: domain/delphi/generate-api-client.md
+      inputs:
+        base_url:
+          type: string
+          description: URL base de la API
+        endpoints:
+          type: list
+          description: Lista de endpoints a implementar
+        auth_type:
+          type: enum
+          description: none | api_key | oauth2 | certificate
+        response_format:
+          type: enum
+          description: json | xml
+    generate-exception-handler:
+      name: generate-exception-handler
+      description: '## Descripción'
+      version: 1.0.0
+      labels:
+      - domain/delphi
+      implementation:
+        type: markdown
+        uri: domain/delphi/generate-exception-handler.md
+      inputs: {}
+    generate-singleton:
+      name: generate-singleton
+      description: '## Descripción'
+      version: 1.0.0
+      labels:
+      - domain/delphi
+      implementation:
+        type: markdown
+        uri: domain/delphi/generate-singleton.md
+      inputs: {}
+    implement-design-pattern:
+      name: implement-design-pattern
+      description: '## Descripción'
+      version: 1.0.0
+      labels:
+      - domain/delphi
+      implementation:
+        type: markdown
+        uri: domain/delphi/implement-design-pattern.md
+      inputs: {}
+    optimize-vcl-form:
+      name: optimize-vcl-form
+      description: '## Descripción'
+      version: 1.0.0
+      labels:
+      - domain/delphi
+      implementation:
+        type: markdown
+        uri: domain/delphi/optimize-vcl-form.md
+      inputs: {}
+    delphi-cloud-context:
+      name: delphi-cloud-context
+      description: '## Descripción'
+      version: 1.1.0
+      labels:
+      - domain/delphi
+      implementation:
+        type: markdown
+        uri: domain/delphi/contexts/delphi-cloud-context.md
+      inputs: {}
+    delphi-core-context:
+      name: delphi-core-context
+      description: '## Descripción'
+      version: 1.1.0
+      labels:
+      - domain/delphi
+      implementation:
+        type: markdown
+        uri: domain/delphi/contexts/delphi-core-context.md
+      inputs: {}
+    delphi-db-context:
+      name: delphi-db-context
+      description: '## Descripción'
+      version: 1.1.0
+      labels:
+      - domain/delphi
+      implementation:
+        type: markdown
+        uri: domain/delphi/contexts/delphi-db-context.md
+      inputs: {}
+    delphi-vcl-context:
+      name: delphi-vcl-context
+      description: '## Descripción'
+      version: 1.1.0
+      labels:
+      - domain/delphi
+      implementation:
+        type: markdown
+        uri: domain/delphi/contexts/delphi-vcl-context.md
+      inputs: {}
+    zksdk-biometrico:
+      name: zksdk-biometrico
+      description: '## Descripción'
+      version: 1.0.0
+      labels:
+      - domain/hardware
+      implementation:
+        type: markdown
+        uri: domain/hardware/zksdk-biometrico.md
+      inputs: {}
+    desarrollo-híbrido-(desktop-+-nube):
+      name: Desarrollo Híbrido (Desktop + Nube)
+      description: <context>
+      version: 1.0.0
+      labels:
+      - domain/hybrid
+      implementation:
+        type: markdown
+        uri: domain/hybrid/hybrid-sync.md
+      inputs: {}
+    generate-verifactu-xml:
+      name: generate-verifactu-xml
+      description: '## Descripción'
+      version: 1.0.0
+      labels:
+      - domain/verifactu
+      implementation:
+        type: markdown
+        uri: domain/verifactu/generate-verifactu-xml.md
+      inputs: {}
+    validate-nif-cif:
+      name: validate-nif-cif
+      description: '## Descripción'
+      version: 1.0.0
+      labels:
+      - domain/verifactu
+      implementation:
+        type: markdown
+        uri: domain/verifactu/validate-nif-cif.md
+      inputs: {}
+    validate-verifactu-implementation:
+      name: validate-verifactu-implementation
+      description: '## Descripción'
+      version: 1.0.0
+      labels:
+      - domain/verifactu
+      implementation:
+        type: markdown
+        uri: domain/verifactu/validate-verifactu-implementation.md
+      inputs:
+        project_path:
+          type: string
+          description: Ruta al proyecto Delphi
+        validation_level:
+          type: string, opcional
+          description: '[basic|standard|exhaustive] (default: standard)'
+        generate_report:
+          type: boolean, opcional
+          description: 'Generar reporte PDF (default: true)'
+    verifactu-expert-context:
+      name: verifactu-expert-context
+      description: '## Descripción'
+      version: 1.0.0
+      labels:
+      - domain/verifactu
+      implementation:
+        type: markdown
+        uri: domain/verifactu/verifactu-expert-context.md
+      inputs: {}
+    delphi-verifactu-context:
+      name: delphi-verifactu-context
+      description: '## Descripción'
+      version: 1.1.0
+      labels:
+      - domain/verifactu
+      implementation:
+        type: markdown
+        uri: domain/verifactu/contexts/delphi-verifactu-context.md
+      inputs: {}
+    php-mysql-context:
+      name: php-mysql-context
+      description: '## Descripción'
+      version: 1.1.0
+      labels:
+      - domain/web
+      implementation:
+        type: markdown
+        uri: domain/web/contexts/php-mysql-context.md
+      inputs: {}
+    proyecto-arafac-/-aracostes:
+      name: Proyecto ARAFAC / Aracostes
+      description: <context>
+      version: '2.0'
+      labels:
+      - project
+      implementation:
+        type: markdown
+        uri: projects/arafac.md
+      inputs: {}
+    proyecto-erpw:
+      name: Proyecto ERPW
+      description: <context>
+      version: '2.0'
+      labels:
+      - project
+      implementation:
+        type: markdown
+        uri: projects/erpw.md
+      inputs: {}
+    proyecto-tpvara:
+      name: Proyecto TPVARA
+      description: <context>
+      version: '2.0'
+      labels:
+      - project
+      implementation:
+        type: markdown
+        uri: projects/tpvara.md
+      inputs: {}
+    dependencies:
+      name: dependencies
+      description: '## Componentes Core Delphi'
+      version: 1.0.0
+      labels:
+      - uncategorized
+      implementation:
+        type: markdown
+        uri: specs/dependencies.md
+      inputs: {}
+    system-context:
+      name: system-context
+      description: '## Descripción General'
+      version: 1.0.0
+      labels:
+      - uncategorized
+      implementation:
+        type: markdown
+        uri: specs/system-context.md
+      inputs: {}
+    workflow-de-compilación:
+      name: Workflow de Compilación
+      description: <context>
+      version: '2.0'
+      labels:
+      - workflow
+      implementation:
+        type: markdown
+        uri: workflows/compilation.md
+      inputs: {}
+    deploy-verifactu-update:
+      name: deploy-verifactu-update
+      description: '## Descripción'
+      version: 1.1.0
+      labels:
+      - workflows/deployment
+      implementation:
+        type: markdown
+        uri: workflows/deployment/deploy-verifactu-update.md
+      inputs: {}
+    full-feature-development:
+      name: full-feature-development
+      description: '## Descripción'
+      version: 1.0.0
+      labels:
+      - workflows/development
+      implementation:
+        type: markdown
+        uri: workflows/development/full-feature-development.md
+      inputs: {}
+    skill-composer:
+      name: skill-composer
+      description: '## Descripción'
+      version: 1.0.0
+      labels:
+      - workflows/development
+      implementation:
+        type: markdown
+        uri: workflows/development/skill-composer.md
+      inputs: {}
+    sync-mobile-data:
+      name: sync-mobile-data
+      description: '## Descripción'
+      version: 1.0.0
+      labels:
+      - workflows/development
+      implementation:
+        type: markdown
+        uri: workflows/development/sync-mobile-data.md
+      inputs: {}
+    migrate-bde-firedac:
+      name: migrate-bde-firedac
+      description: '## Descripción'
+      version: 1.0.0
+      labels:
+      - workflows/migration
+      implementation:
+        type: markdown
+        uri: workflows/migration/migrate-bde-firedac.md
+      inputs: {}
+    generate-unit-test:
+      name: generate-unit-test
+      description: '## Descripción'
+      version: 1.0.0
+      labels:
+      - workflows/testing
+      implementation:
+        type: markdown
+        uri: workflows/testing/generate-unit-test.md
+      inputs: {}
+    run-test-suite:
+      name: run-test-suite
+      description: '## Descripción'
+      version: 0.1.0
+      labels:
+      - workflows/testing
+      implementation:
+        type: markdown
+        uri: workflows/testing/run-test-suite.md
+      inputs: {}

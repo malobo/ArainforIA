@@ -1,0 +1,132 @@
+openSpec: 1.0.0
+info:
+  title: Agent Skills Registry
+  version: 1.0.0
+  description: Catálogo generado automáticamente de skills disponibles.
+components:
+  tools:
+    sync-skills-registry:
+      name: sync-skills-registry
+      description: Sincroniza automáticamente el índice de skills con los archivos reales del sistema.
+      version: 1.1.0
+      labels: [core, analysis, meta, sync, automation]
+      implementation:
+        type: markdown
+        uri: core/analysis/sync-skills-registry.md
+    
+    validate-skill-format:
+      name: validate-skill-format
+      description: Valida que un archivo de skill sigue el formato estándar del sistema (v1.1).
+      version: 1.1.0
+      labels: [core, analysis, validation, skills, quality]
+      implementation:
+        type: markdown
+        uri: core/analysis/validate-skill-format.md
+
+    validate-system-health:
+      name: validate-system-health
+      description: Realiza un diagnóstico completo del Sistema de Skills.
+      version: 1.0.0
+      labels: [core, analysis, validation, health-check]
+      implementation:
+        type: markdown
+        uri: core/analysis/validate-system-health.md
+
+    generate-boilerplate:
+      name: generate-boilerplate
+      description: Genera estructuras de código base (clases, unidades, tests) siguiendo los estándares.
+      version: 1.1.0
+      labels: [core, generation, boilerplate, code]
+      implementation:
+        type: markdown
+        uri: core/generation/generate-boilerplate.md
+
+    generate-unit-tests:
+      name: generate-unit-tests
+      description: Genera tests unitarios automáticos para métodos y clases Delphi.
+      version: 1.0.0
+      labels: [core, generation, testing, dunit, quality]
+      implementation:
+        type: markdown
+        uri: core/generation/generate-unit-tests.md
+
+    generate-readme:
+      name: generate-readme
+      description: Genera documentación de alto nivel (README.md) para proyectos o carpetas.
+      version: 1.1.0
+      labels: [core, documentation, readme, markdown]
+      implementation:
+        type: markdown
+        uri: core/documentation/generate-readme.md
+
+    extract-method:
+      name: extract-method
+      description: Refactoriza un bloque de código seleccionando extrayéndolo a un nuevo método/función.
+      version: 1.1.0
+      labels: [core, refactoring, methods, clean-code]
+      implementation:
+        type: markdown
+        uri: core/refactoring/extract-method.md
+
+    sync-openspec-registry:
+      name: sync-openspec-registry
+      description: Escanea todas las skills disponibles en formato Markdown y genera el catálogo OpenSpec.
+      version: 1.0.0
+      labels: [core, integration, openspec, registry]
+      implementation:
+        type: markdown
+        uri: core/integration/sync-openspec-registry.md
+
+    analyze-delphi-unit:
+      name: analyze-delphi-unit
+      description: Analiza una unidad (.pas) de Delphi para identificar estructura, dependencias y complejidad.
+      version: 1.1.0
+      labels: [domain, delphi, analysis, code-review]
+      implementation:
+        type: markdown
+        uri: domain/delphi/analyze-delphi-unit.md
+
+    implement-design-pattern:
+      name: implement-design-pattern
+      description: Implementa patrones de diseño clásicos (GoF) en Delphi.
+      version: 1.0.0
+      labels: [domain, delphi, patterns, design, solid]
+      implementation:
+        type: markdown
+        uri: domain/delphi/implement-design-pattern.md
+
+    debug-memory-leak:
+      name: debug-memory-leak
+      description: Detecta, analiza y sugiere correcciones para memory leaks en código Delphi.
+      version: 1.0.0
+      labels: [domain, delphi, debugging, memory, leak]
+      implementation:
+        type: markdown
+        uri: domain/delphi/debug-memory-leak.md
+
+    create-database-migration:
+      name: create-database-migration
+      description: Genera scripts de migración para bases de datos Paradox (BDE).
+      version: 1.0.0
+      labels: [domain, database, migration, paradox]
+      implementation:
+        type: markdown
+        uri: domain/database/create-database-migration.md
+
+    generate-crud-forms:
+      name: generate-crud-forms
+      description: Genera formularios CRUD completos para tablas de base de datos.
+      version: 1.0.0
+      labels: [domain, database, crud, forms, ui]
+      implementation:
+        type: markdown
+        uri: domain/database/generate-crud-forms.md
+
+    validate-verifactu-implementation:
+      name: validate-verifactu-implementation
+      description: Valida que la implementación de Verifactu cumple con los requisitos del RD 1007/2023.
+      version: 1.0.0
+      labels: [domain, verifactu, validation, compliance]
+      implementation:
+        type: markdown
+        uri: domain/verifactu/validate-verifactu-implementation.md

@@ -6,6 +6,14 @@ Este directorio contiene un sistema estructurado de **skills** (habilidades) dis
 
 > **Para la IA**: Si eres un asistente, lee primero la [Guía para IAs](./AI_GUIDE.md).
 
+## 🧩 Estándar OpenSpec
+
+Este sistema implementa la filosofía **OpenSpec** ("Context as Code"), que busca estandarizar cómo los agentes de IA consumen y ejecutan herramientas.
+
+- **Definición Formal**: Cada skill se registra automáticamente en un catálogo YAML compatible con OpenSpec (`registry/tools.yaml`).
+- **Híbrido Humano/Máquina**: Mantenemos documentación legible para humanos (`.md`) que se compila a definiciones estrictas para máquinas.
+- **Interoperabilidad**: Al seguir este estándar, las skills son portables entre diferentes modelos y entornos (Gemini, ChatGPT, Claude, Local LLMs).
+
 ## 🚀 Inicio Rápido
 
 ### Invocar una Skill
@@ -59,7 +67,7 @@ Copy-Item ".skills/templates/skill-template.md" ".skills/domain/custom/nueva-ski
 ├── workflows/              # Procesos secuenciales
 │   └── deployment/         # CI/CD y Releases
 │
-└── registry/               # Metadatos para herramientas (JSON)
+└── registry/               # Definiciones OpenSpec (YAML) y esquemas
 ```
 
 ## 📦 Instalación y Portabilidad

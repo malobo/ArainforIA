@@ -367,3 +367,14 @@ Mejoras basadas en [OpenSpec](https://github.com/Fission-AI/OpenSpec) - Spec-dri
 **Mantenedor**: Sistema de Skills  
 **Última actualización**: 2026-01-07T11:19:56+01:00  
 **Próxima revisión**: 2026-04-07
+  
+## [1.7.0] - 2026-01-08  
+  
+### Added  
+- **OpenSpec Integration**: Implementacion nativa de OpenSpec.  
+- **Registry Sync**: Script scripts/sync_openspec.py para generar egistry/tools.yaml automaticamente.  
+- **Skill Update**: core/integration/sync-openspec-registry actualizada a formato Next-Gen.  
+  
+### Changed  
+- **Cleanup**: Limpieza masiva de la raiz de .skills.  
+- **Refactor**: Scripts de mantenimiento movidos a .skills/scripts/. 
