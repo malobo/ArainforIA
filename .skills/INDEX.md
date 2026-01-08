@@ -1,46 +1,46 @@
 # Índice de Skills de Arainfor
 
-**Generado automáticamente. Sistema Next-Gen (Context Enhanced).**
-**Versión 1.8.0 - 2026-01-08**
+**Sistema Next-Gen (Context Enhanced)**  
+**Versión 1.9.0 - 2026-01-08**
 
-## Core (Fundamentales)
+---
+
+## Core (Fundamentales) · 18 skills
+
+### Conectores Críticos
 
 - ✨ [Delphi RAG Connector](core/delphi_rag.md) 🔴 **CRÍTICO**
-  - *Triggers: `como hago en delphi`, `componente desconocido`, `error de compilacion`...*
+  - *Triggers: `como hago en delphi`, `componente desconocido`, `error de compilacion`*
 - ✨ [Notion MCP Connector](core/notion.md) 🔴 **CRÍTICO**
-  - *Triggers: `objetivo del proyecto`, `memoria del proyecto`, `roadmap`...*
-- ✨ [Convenciones Delphi Arainfor](core/delphi.md) Rx **ALTA**
-  - *Triggers: `escribe codigo delphi`, `crear unidad pas`, `refactorizar delphi`...*
-- ✨ [Normativa VERIFACTU](core/verifactu.md) Rx **ALTA**
-  - *Triggers: `verifactu`, `ley antifraude`, `encadenamiento facturas`...*
-- ✨ [mORMot 2 Framework](core/mormot.md) Rx **ALTA**
-  - *Triggers: `mormot`, `firmar factura`, `verifactu signature`...*
+  - *Triggers: `objetivo del proyecto`, `memoria del proyecto`, `roadmap`*
+- ✨ [Convenciones Delphi](core/delphi.md) **ALTA**
+  - *Triggers: `escribe codigo delphi`, `crear unidad pas`, `refactorizar delphi`*
+- ✨ [Normativa VERIFACTU](core/verifactu.md) **ALTA**
+  - *Triggers: `verifactu`, `ley antifraude`, `encadenamiento facturas`*
+- ✨ [mORMot 2 Framework](core/mormot.md) **ALTA**
+  - *Triggers: `mormot`, `firmar factura`, `verifactu signature`*
 
-### Análisis
+### Análisis · 5 skills
 
-- [validate-skill-format](core/analysis/validate-skill-format.md)
-- [validate-system-health](core/analysis/validate-system-health.md)
-- [sync-skills-registry](core/analysis/sync-skills-registry.md)
-- ✨ [validate-dfm-integrity](core/analysis/validate-dfm-integrity.md)
-  - *Triggers: `dfm roto`, `componente no encontrado`, `validar dfm`...*
-- ✨ [analyze-project-structure](core/analysis/analyze-project-structure.md) 🆕
-  - *Triggers: `analizar proyecto`, `mapa dependencias`, `estructura`...*
+- [analyze-project-structure](core/analysis/analyze-project-structure.md) - Mapear dependencias
+- [sync-skills-registry](core/analysis/sync-skills-registry.md) - Sincronizar registro
+- [validate-dfm-integrity](core/analysis/validate-dfm-integrity.md) - Validar DFM
+- [validate-skill-format](core/analysis/validate-skill-format.md) - Validar formato skill
+- [validate-system-health](core/analysis/validate-system-health.md) - Salud del sistema
 
-### Generación
+### Generación · 4 skills
 
-- [generate-boilerplate](core/generation/generate-boilerplate.md)
-- [generate-readme](core/documentation/generate-readme.md)
-- [generate-unit-tests](core/generation/generate-unit-tests.md)
-- ✨ [generate-json-dto](core/generation/generate-json-dto.md)
-  - *Triggers: `crear dto`, `json structure`, `serializar objeto`...*
+- [generate-boilerplate](core/generation/generate-boilerplate.md) - Código base
+- [generate-json-dto](core/generation/generate-json-dto.md) - DTOs para JSON
+- [generate-readme](core/documentation/generate-readme.md) - Documentación README
+- [generate-unit-tests](core/generation/generate-unit-tests.md) - Tests unitarios
 
-### Refactoring
+### Refactoring · 2 skills
 
-- [extract-method](core/refactoring/extract-method.md)
-- ✨ [refactor-to-mvp](core/refactoring/refactor-to-mvp.md) 🆕
-  - *Triggers: `separar logica`, `mvp pattern`, `desacoplar form`...*
+- [extract-method](core/refactoring/extract-method.md) - Extraer método
+- [refactor-to-mvp](core/refactoring/refactor-to-mvp.md) - Separar lógica (MVP)
 
-### Integración Notion
+### Integración Notion · 6 skills
 
 - [create-notion-issue](core/integration/create-notion-issue.md)
 - [log-development-activity](core/integration/log-development-activity.md)
@@ -51,83 +51,79 @@
 
 ---
 
-## Domain (Específicas del Dominio)
+## Domain (Específicas) · 22 skills
 
-### Delphi
+### Delphi · 10 skills
 
-- ✨ [generate-api-client](domain/delphi/generate-api-client.md)
-  - *Triggers: `consumir api`, `cliente rest`, `llamada http`...*
-- ✨ [create-rest-endpoint](domain/delphi/create-rest-endpoint.md) 🆕
-  - *Triggers: `crear api`, `endpoint rest`, `servicio web`...*
-- ✨ [optimize-vcl-form](domain/delphi/optimize-vcl-form.md) 🆕
-  - *Triggers: `formulario lento`, `optimizar form`, `mejorar ui`...*
-- [analyze-delphi-unit](domain/delphi/analyze-delphi-unit.md)
-- [debug-memory-leak](domain/delphi/debug-memory-leak.md)
-- [implement-design-pattern](domain/delphi/implement-design-pattern.md)
-- [components-inventory](domain/delphi/components-inventory.md)
+- [analyze-delphi-unit](domain/delphi/analyze-delphi-unit.md) - Analizar unidad
+- [components-inventory](domain/delphi/components-inventory.md) - Inventario componentes
+- [create-rest-endpoint](domain/delphi/create-rest-endpoint.md) - Crear API REST
+- [debug-memory-leak](domain/delphi/debug-memory-leak.md) - Fugas de memoria
+- [debug-runtime-error](domain/delphi/debug-runtime-error.md) 🆕 - Errores runtime
+- [generate-api-client](domain/delphi/generate-api-client.md) - Cliente REST
+- [generate-exception-handler](domain/delphi/generate-exception-handler.md) 🆕 - Try/Except
+- [generate-singleton](domain/delphi/generate-singleton.md) 🆕 - Patrón Singleton
+- [implement-design-pattern](domain/delphi/implement-design-pattern.md) - Patrones diseño
+- [optimize-vcl-form](domain/delphi/optimize-vcl-form.md) - Optimizar formularios
 
-### Database
+### Database · 9 skills
 
-- ✨ [convert-sql-paradox](domain/database/convert-sql-paradox.md)
-  - *Triggers: `convertir sql`, `paradox query`, `sql a paradox`...*
-- ✨ [validate-paradox-table](domain/database/validate-paradox-table.md) 🆕
-  - *Triggers: `tabla corrupta`, `paradox roto`, `reparar db`...*
-- ✨ [generate-gmprint-invoice](domain/database/generate-gmprint-invoice.md) 🆕
-  - *Triggers: `imprimir factura`, `gmprint template`, `ticket`...*
-- ✨ [generate-report-template](domain/database/generate-report-template.md) 🆕
-  - *Triggers: `crear informe`, `plantilla impresion`, `reporte`...*
-- ✨ [generate-data-export](domain/database/generate-data-export.md) 🆕
-  - *Triggers: `exportar excel`, `generar csv`, `sacar datos`...*
-- ✨ [implement-audit-trail](domain/database/implement-audit-trail.md) 🆕
-  - *Triggers: `auditar cambios`, `historial registros`, `log`...*
-- ✨ [debug-connection-issue](domain/database/debug-connection-issue.md) 🆕
-  - *Triggers: `no conecta`, `error conexion`, `bd bloqueada`...*
-- [create-database-migration](domain/database/create-database-migration.md)
+- [convert-sql-paradox](domain/database/convert-sql-paradox.md) - SQL a Paradox
+- [create-database-migration](domain/database/create-database-migration.md) - Migraciones
+- [debug-connection-issue](domain/database/debug-connection-issue.md) - Conexiones
+- [generate-data-export](domain/database/generate-data-export.md) - Exportar datos
+- [generate-gmprint-invoice](domain/database/generate-gmprint-invoice.md) - Facturas
+- [generate-report-template](domain/database/generate-report-template.md) - Informes
+- [generate-stored-procedure](domain/database/generate-stored-procedure.md) 🆕 - SP/Triggers
+- [implement-audit-trail](domain/database/implement-audit-trail.md) - Auditoría
+- [validate-paradox-table](domain/database/validate-paradox-table.md) - Reparar Paradox
 
-### Verifactu
+### Verifactu · 3 skills
 
-- ✨ [generate-verifactu-xml](domain/verifactu/generate-verifactu-xml.md) 🆕
-  - *Triggers: `xml verifactu`, `generar factura xml`, `aeat`...*
-- [validate-verifactu-implementation](domain/verifactu/validate-verifactu-implementation.md)
+- [generate-verifactu-xml](domain/verifactu/generate-verifactu-xml.md) - XML AEAT
+- [validate-nif-cif](domain/verifactu/validate-nif-cif.md) 🆕 - Validar NIF/CIF
+- [validate-verifactu-implementation](domain/verifactu/validate-verifactu-implementation.md) - Cumplimiento
+
+### Hardware · 1 skill
+
+- [zksdk-biometrico](domain/hardware/zksdk-biometrico.md) 🆕 - Lectores huella ZKTeco
 
 ---
 
-## Proyectos
+## Proyectos · 3 skills
 
-- ✨ [Proyecto ARAFAC / Aracostes](projects/arafac.md) Rx **ALTA**
-  - *Triggers: `aracostes`, `arafac`, `facturacion verifactu`...*
-- ✨ [Proyecto ERPW](projects/erpw.md) Rx **ALTA**
-  - *Triggers: `erpw`, `erp central`, `erpw.new`...*
-- ✨ [Proyecto TPVARA](projects/tpvara.md) Rx **ALTA**
-  - *Triggers: `tpvara`, `tpv`, `ticket de venta`...*
+- ✨ [ARAFAC / Aracostes](projects/arafac.md) **ALTA** - Facturación Verifactu
+- ✨ [ERPW](projects/erpw.md) **ALTA** - ERP Central
+- ✨ [TPVARA](projects/tpvara.md) **ALTA** - Terminal Punto de Venta
 
 ---
 
-## Workflows
+## Workflows · 6 skills
 
 ### Compilación
 
-- ✨ [Workflow de Compilación](workflows/compilation.md)
-  - *Triggers: `compila esto`, `build project`, `error dcc32`...*
+- [compilation](workflows/compilation.md) - Build Delphi
 
-### Desarrollo
+### Desarrollo · 2 skills
 
-- ✨ [skill-composer](workflows/development/skill-composer.md) 🆕
-  - *Triggers: `combinar skills`, `pipeline desarrollo`, `workflow`...*
-- ✨ [sync-mobile-data](workflows/development/sync-mobile-data.md) 🆕
-  - *Triggers: `sincronizar movil`, `datos offline`, `sync app`...*
+- [skill-composer](workflows/development/skill-composer.md) - Pipelines
+- [sync-mobile-data](workflows/development/sync-mobile-data.md) - Sync móvil
 
 ### Migración
 
-- ✨ [migrate-bde-firedac](workflows/migration/migrate-bde-firedac.md) 🆕
-  - *Triggers: `migrar bde`, `eliminar paradox`, `modernizar`...*
+- [migrate-bde-firedac](workflows/migration/migrate-bde-firedac.md) - BDE → FireDAC
+
+### Testing · 1 skill
+
+- [generate-unit-test](workflows/testing/generate-unit-test.md) 🆕 - DUnit tests
 
 ---
 
 ## Infraestructura
 
-- [Aliases de Skills](registry/aliases.md) - Nombres alternativos para skills
+- [Aliases](registry/aliases.md) - Nombres alternativos
+- [Templates](templates/) - Plantillas para nuevas skills
 
 ---
 
-**Total skills**: 45+
+**Total: 50+ skills** | [CHANGELOG](CHANGELOG.md) | [AGENTES.md](../AGENTES.md)

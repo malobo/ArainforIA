@@ -5,6 +5,32 @@ Todos los cambios notables en el sistema de skills serán documentados en este a
 El formato está basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.0.0/),
 y este proyecto adhiere a [Semantic Versioning](https://semver.org/lang/es/).
 
+## [1.9.0] - 2026-01-08
+
+### Añadido
+
+#### Nuevas Skills (7)
+
+- **validate-nif-cif** (verifactu): Validación local y AEAT de NIF/CIF
+- **debug-runtime-error** (delphi): Diagnóstico Access Violation, etc.
+- **generate-exception-handler** (delphi): Templates try/except/finally
+- **generate-stored-procedure** (database): SP, funciones y triggers SQL
+- **generate-singleton** (delphi): Patrón Singleton thread-safe
+- **zksdk-biometrico** (hardware): Lectores huella ZKTeco
+- **generate-unit-test** (testing): Tests DUnit
+
+#### Nuevas Secciones
+
+- **Hardware**: Skills para dispositivos físicos
+- **Testing**: Workflows de pruebas
+
+### Cambiado
+
+- **INDEX.md**: Reorganizado con contadores por sección, orden alfabético
+- **Total skills**: 50+ (de 45+)
+
+---
+
 ## [1.8.1] - 2026-01-08
 
 ### Añadido (Mejoras OpenSpec)
