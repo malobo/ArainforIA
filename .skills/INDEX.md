@@ -10,6 +10,8 @@
   - *Triggers: `objetivo del proyecto`, `memoria del proyecto`, `roadmap`...*
 - ✨ [Convenciones Delphi Arainfor](core/delphi.md) Rx **ALTA**
   - *Triggers: `escribe codigo delphi`, `crear unidad pas`, `refactorizar delphi`...*
+- ✨ [Generar JSON DTOs (Data Transfer Objects)](core/generation/generate-json-dto.md) Rx **ALTA**
+  - *Triggers: `crear dto`, `json structure`, `serializar objeto`...*
 - ✨ [Normativa VERIFACTU](core/verifactu.md) Rx **ALTA**
   - *Triggers: `verifactu`, `ley antifraude`, `encadenamiento facturas`...*
 - ✨ [Sincronizar Registro OpenSpec](core/integration/sync-openspec-registry.md) Rx **ALTA**
@@ -21,8 +23,6 @@
 -  [create-notion-issue](core/integration/create-notion-issue.md) 
 -  [extract-method](core/refactoring/extract-method.md) 
 -  [generate-boilerplate](core/generation/generate-boilerplate.md) 
--  [generate-json-dto](core/generation/generate-json-dto.md) 
-  - *Triggers: `crear dto`, `json structure`, `serializar objeto`...*
 -  [generate-readme](core/documentation/generate-readme.md) 
 -  [generate-unit-tests](core/generation/generate-unit-tests.md) 
 -  [log-development-activity](core/integration/log-development-activity.md) 

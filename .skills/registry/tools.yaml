@@ -171,28 +171,16 @@ components:
         inheritance:
           type: string, opcional
           description: 'Clase padre (ej: `TInterfacedObject`)'
-    generate-json-dto:
-      name: generate-json-dto
-      description: '## Descripción'
+    generar-json-dtos-(data-transfer-objects):
+      name: Generar JSON DTOs (Data Transfer Objects)
+      description: <context>
       version: 1.0.0
       labels:
       - core/generation
       implementation:
         type: markdown
         uri: core/generation/generate-json-dto.md
-      inputs:
-        json_sample:
-          type: string
-          description: JSON de ejemplo
-        dto_name:
-          type: string
-          description: Nombre del tipo a generar
-        framework:
-          type: enum
-          description: mormot | system_json
-        style:
-          type: enum
-          description: record | class
+      inputs: {}
     generate-unit-tests:
       name: generate-unit-tests
       description: '## Descripción'
@@ -695,6 +683,17 @@ components:
         type: markdown
         uri: projects/tpvara.md
       inputs: {}
+    architecture-backend-php:
+      name: architecture-backend-php
+      description: Este documento define la estructura técnica de la API REST en PHP
+        que servirá como "espejo" en la nube para el ERP Delphi.
+      version: 1.0.0
+      labels:
+      - uncategorized
+      implementation:
+        type: markdown
+        uri: specs/architecture-backend-php.md
+      inputs: {}
     dependencies:
       name: dependencies
       description: '## Componentes Core Delphi'
@@ -755,9 +754,9 @@ components:
         type: markdown
         uri: workflows/development/skill-composer.md
       inputs: {}
-    sync-mobile-data:
-      name: sync-mobile-data
-      description: '## Descripción'
+    workflow-sincronización-móvil:
+      name: Workflow Sincronización Móvil
+      description: <context>
       version: 1.0.0
       labels:
       - workflows/development

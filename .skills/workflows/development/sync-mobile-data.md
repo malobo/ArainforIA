@@ -1,132 +1,54 @@
 ---
-name: sync-mobile-data
+id: skill-sync-mobile-data
+name: Workflow Sincronización Móvil
 version: 1.0.0
 category: workflows/development
-tags: [sincronizacion, movil, offline, hibrido]
-author: ARAINFORIA
-created: 2026-01-08
-complexity: 8
+priority: high
+last_updated: 2026-01-08
 triggers:
   - "sincronizar movil"
   - "datos offline"
   - "sync app"
-  - "app movil"
+  - "subir datos nube"
 ---
 
-# Sincronización Datos Móvil ↔ Desktop
+# 📲 Workflow: Sincronización Móvil/Nube
 
-## Descripción
+<context>
+Este workflow describe el algoritmo robusto para mantener consistencia de datos entre la base de datos local (Delphi/FireDAC) y la API Cloud (MySQL). Maneja conflictos básicos y asegura atomicidad.
+</context>
 
-Workflow para sincronizar datos entre aplicación móvil y backend Delphi.
+<instruction>
+El proceso de sincronización sigue el patrón "Smart Sync":
 
-## Arquitectura
+## 1. Fase de Subida (Upstream)
 
-```text
-┌─────────────┐         ┌─────────────┐         ┌─────────────┐
-│  App Móvil  │◀──────▶│  API REST   │◀──────▶│  BD Local   │
-│  (Offline)  │  Sync   │  (mORMot)   │         │  (Paradox)  │
-└─────────────┘         └─────────────┘         └─────────────┘
-```
+1. **Identificar Cambios**:
+    * Hacer consulta a tablas locales con `LastUpdate > LastSyncTime`.
+    * Generar JSON DTOs (`skill-generate-json-dto`).
+2. **Enviar Lote**:
+    * POST `/api/sync/up`.
+    * Incluir Token JWT.
+3. **Confirmación**:
+    * Si API responde 200 OK -> Actualizar `LastSyncTime` local.
 
-## Tabla de Sincronización
+## 2. Fase de Bajada (Downstream)
 
-```sql
-CREATE TABLE SYNC_LOG (
-  ID            INTEGER PRIMARY KEY,
-  TABLA         VARCHAR(50),
-  ID_REGISTRO   INTEGER,
-  OPERACION     VARCHAR(10),  -- INSERT, UPDATE, DELETE
-  TIMESTAMP_LOCAL TIMESTAMP,
-  TIMESTAMP_SYNC  TIMESTAMP,
-  ESTADO        VARCHAR(20),  -- PENDIENTE, SINCRONIZADO, ERROR
-  CONFLICTO     BOOLEAN
-);
-```
+1. **Solicitar Cambios**:
+    * GET `/api/sync/down?since=<LastSyncTime>`.
+2. **Procesar Datos**:
+    * Para cada registro recibido:
+        * Buscar por ID (UUID o Clave Natural).
+        * Si existe y `Local.LastUpdate < Cloud.LastUpdate` -> UPDATE.
+        * Si no existe -> INSERT.
 
-## Estrategia de Sincronización
+## 3. Manejo de Conflictos
 
-### 1. Timestamp-based Sync
+* Estrategia: **"La Nube Gana"** (por defecto) o **"Última Escritura Gana"** (Time-based).
+* En caso de error crítico, registrar en tabla local `SINCRO_LOG`.
+</instruction>
 
-```pascal
-type
-  TSyncRequest = record
-    UltimaSync: TDateTime;
-    Tabla: RawUtf8;
-  end;
-
-  TSyncResponse = record
-    Registros: TVariantDynArray;
-    UltimaSync: TDateTime;
-    TotalCambios: Integer;
-  end;
-
-function GetCambiosDesde(const Tabla: string; 
-  Desde: TDateTime): TSyncResponse;
-begin
-  Query.SQL.Text := 
-    'SELECT * FROM ' + Tabla + 
-    ' WHERE FechaModificacion > :Desde';
-  Query.ParamByName('Desde').AsDateTime := Desde;
-  Query.Open;
-  // ... llenar Response
-end;
-```
-
-### 2. Resolución de Conflictos
-
-```pascal
-type
-  TConflictResolution = (
-    crServerWins,   // Servidor tiene prioridad
-    crClientWins,   // Cliente tiene prioridad
-    crNewerWins,    // El más reciente gana
-    crManual        // Requiere intervención
-  );
-
-function ResolverConflicto(const Local, Remoto: TRegistro;
-  Estrategia: TConflictResolution): TRegistro;
-begin
-  case Estrategia of
-    crServerWins: Result := Remoto;
-    crClientWins: Result := Local;
-    crNewerWins:
-      if Local.FechaModificacion > Remoto.FechaModificacion then
-        Result := Local
-      else
-        Result := Remoto;
-  end;
-end;
-```
-
-### 3. API de Sincronización
-
-```pascal
-// Endpoint: POST /api/sync
-function TApiServer.PostSync(Ctxt: TRestServerUriContext): Integer;
-var
-  Request: TSyncRequest;
-  Response: TSyncResponse;
-begin
-  RecordLoadJson(Request, Ctxt.InputUtf8, TypeInfo(TSyncRequest));
-  
-  Response := GetCambiosDesde(Request.Tabla, Request.UltimaSync);
-  
-  // Procesar cambios del cliente
-  ProcesarCambiosCliente(Ctxt.InputUtf8);
-  
-  Ctxt.Returns(RecordSaveJson(Response, TypeInfo(TSyncResponse)));
-  Result := HTTP_SUCCESS;
-end;
-```
-
-## Checklist de Implementación
-
-- [ ] Añadir campo `FechaModificacion` a todas las tablas
-- [ ] Crear tabla `SYNC_LOG`
-- [ ] Implementar endpoints de sync
-- [ ] Definir estrategia de conflictos
-- [ ] Manejar modo offline
-
----
-
-**Estado**: stable
+<examples>
+User: "¿Cómo implemento la subida de Clientes modificados?"
+Agent: "Primero, selecciona los clientes donde `FechaModificacion > UltimoSincro`. Luego, recórrelos creando objetos `TClienteDTO`. Serializa la lista a JSON y envíala con un `THTTPClient.Post` a `/api/sync/up`. Si recibes un 200 OK, guarda la fecha/hora actual como nuevo punto de control."
+</examples>
