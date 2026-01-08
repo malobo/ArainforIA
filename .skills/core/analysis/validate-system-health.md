@@ -13,7 +13,7 @@ dependencies: []
 
 ## Descripción
 
-Realiza un diagnóstico completo del "Sistema de Skills", verificando la integridad del registro, la existencia de los archivos, la consistencia de versiones y la corrección de los metadatos.
+ Realiza un diagnóstico completo del "Sistema de Skills", verificando la integridad del registro OpenSpec, la existencia de los archivos, la consistencia de versiones y la corrección de los metadatos.
 
 ## Cuándo Usar
 
@@ -24,75 +24,76 @@ Realiza un diagnóstico completo del "Sistema de Skills", verificando la integri
 
 ## Inputs
 
-No requiere inputs obligatorios.
+ No requiere inputs obligatorios.
 
-| Parámetro | Tipo | Requerido | Descripción |
-| :--- | :--- | :---: | :--- |
-| `fix_issues` | boolean | ❌ | Intentar corregir problemas menores automáticamente (default: false) |
-| `verbose` | boolean | ❌ | Mostrar salida detallada (default: true) |
+ | Parámetro | Tipo | Requerido | Descripción |
+ | :--- | :--- | :---: | :--- |
+ | `fix_issues` | boolean | ❌ | Intentar corregir problemas menores automáticamente con `sync_openspec.py` (default: false) |
+ | `verbose` | boolean | ❌ | Mostrar salida detallada (default: true) |
 
 ## Salida (Reporte)
 
-La skill genera un reporte en consola (y opcionalmente en un archivo de log) con:
+ La skill genera un reporte en consola (y opcionalmente en un archivo de log) con:
 
 - **Estado General**: ✅ SANO / ⚠️ ADVERTENCIA / ❌ ERROR
-- **Estadísticas**: Skills encontradas vs. registradas.
-- **Lista de Errores**: Archivos perdidos, JSON inválido, etc.
-- **Recomendaciones**: Pasos para arreglar los problemas.
+- **Estadísticas**: Skills encontradas vs. registradas en YAML.
+- **Lista de Errores**: Archivos perdidos, YAML inválido, triggers faltantes.
+- **Recomendaciones**: Pasos para arreglar los problemas (ej: ejecutar scripts).
 
 ## Proceso de Validación
 
-1. **Validar `registry/index.json`**:
-    - Sintaxis JSON válida.
-    - Estructura de esquema correcta (categorías, subcategorías).
-    - Conteo de skills coincide con el total declarado.
+ 1. **Validar `registry/tools.yaml`**:
+     - Sintaxis YAML válida.
+     - Estructura OpenSpec correcta (`tools` list, `parameters`).
+     - Conteo de skills coincide con el total declarado.
 
-2. **Validar Archivos Físicos**:
-    - Para cada skill en el registro, verificar que el archivo `.md` existe en la ruta especificada.
-    - Verificar que existe el archivo de metadata `.json` correspondiente.
+ 2. **Validar Archivos Físicos**:
+     - Para cada skill en el registro, verificar que el archivo `.md` existe en la ruta relativa correcta.
+     - Verificar existencia de la carpeta `scripts/` y sus componentes clave (`sync_openspec.py`).
 
-3. **Validar Consistencia de Versiones**:
-    - Comparar versión en `registry/index.json` con `WELCOME.md` e `INDEX.md`.
-    - Verificar fechas de actualización.
+ 3. **Validar Consistencia de Versiones**:
+     - Comparar versión en `registry/tools.yaml` con `.skills/README.md`.
+     - Verificar fechas de actualización.
 
-4. **Validar Frontmatter**:
-    - Leer el frontmatter YAML de cada skill.
-    - Verificar que `name` y `category` coinciden con el registro.
+ 4. **Validar Frontmatter y Tags**:
+     - Leer el frontmatter YAML de cada skill.
+     - Verificar existencia de triggers.
+     - Verificar presencia de tags Next-Gen: `<context>`, `<instruction>`, `<examples>`.
 
 ## Ejemplo de Ejecución
 
-```yaml
-@skill:core/analysis/validate-system-health
-option: verbose
-```
+ ```yaml
+ @skill:core/analysis/validate-system-health
+ option: verbose
+ ```
 
-**Salida Esperada:**
+ **Salida Esperada:**
 
-```text
-🔍 INICIANDO DIAGNÓSTICO DEL SISTEMA DE SKILLS...
-
-1. [OK] Registry JSON válido (v1.5.0)
-2. [OK] Total skills declaradas: 22
-3. [OK] Total skills encontradas en registry: 22
-4. [OK] Consistencia de versiones (WELCOME.md, INDEX.md)
-
-VERIFICANDO ARCHIVOS FÍSICOS...
-✅ core/generation/generate-unit-tests.md
-✅ domain/delphi/implement-design-pattern.md
-...
-✅ workflows/development/full-feature-development.md
-
-RESULTADO:
-🟢 SISTEMA SANO - Todo funciona correctamente.
-```
+ ```text
+ 🔍 INICIANDO DIAGNÓSTICO DEL SISTEMA DE SKILLS...
+ 
+ 1. [OK] Registry YAML válido (OpenSpec)
+ 2. [OK] Total skills declaradas: 70
+ 3. [OK] Total skills encontradas en disco: 70
+ 4. [OK] Estructura de carpetas (scripts/, templates/) correcta
+ 
+ VERIFICANDO ARCHIVOS FÍSICOS...
+ ✅ core/generation/generate-unit-tests.md
+ ✅ domain/delphi/implement-design-pattern.md
+ ...
+ ✅ workflows/development/full-feature-development.md
+ 
+ RESULTADO:
+ 🟢 SISTEMA SANO - Todo funciona correctamente.
+ ```
 
 ## Solución de Problemas Comunes
 
-| Error | Causa Probable | Solución |
-| :--- | :--- | :--- |
-| `FileNotFound` | Archivo movido o borrado | Restaurar archivo o actualizar ruta en registry |
-| `VersionMismatch` | Se editó un archivo sin los otros | Ejecutar `sync-skills-registry` |
-| `JsonParsingError` | Coma faltante o sintaxis error | Corregir `registry/index.json` con un validador |
+ | Error | Causa Probable | Solución |
+ | :--- | :--- | :--- |
+ | `FileNotFound` | Archivo movido o borrado | Restaurar archivo o ejecutar `scripts/sync_openspec.py` |
+ | `VersionMismatch` | Se editó un archivo sin los otros | Actualizar `README.md` o ejecutar sync |
+ | `YamlParsingError` | Indentación incorrecta | Corregir `registry/tools.yaml` con un validador |
 
 ## Historial de Cambios
 

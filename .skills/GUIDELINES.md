@@ -217,9 +217,9 @@ Las skills pueden componerse para crear workflows:
 
 ## 📝 Plantillas Disponibles
 
-- `skill-template.md` - Plantilla básica para skills
+- `skill-template-v2.md` - Plantilla recomendada para nuevas skills (OpenSpec compliant)
+- `skill-template.md` - Plantilla legacy (verbose)
 - `workflow-template.md` - Plantilla para workflows complejos
-- `domain-skill-template.md` - Plantilla para skills de dominio
 
 ## 🆘 Ayuda
 

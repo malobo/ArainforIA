@@ -48,7 +48,7 @@ Copy-Item ".skills/templates/skill-template-v2.md" ".skills/domain/custom/nueva-
 
 ```text
 .skills/
-├── READMe.md               # Este archivo
+├── README.md               # Este archivo
 ├── AI_GUIDE.md             # Instrucciones críticas para la IA
 ├── GUIDELINES.md           # Normas de desarrollo de skills
 ├── INDEX.md                # Catálogo generado automáticamente

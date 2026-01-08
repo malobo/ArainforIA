@@ -53,13 +53,13 @@ El núcleo de este repositorio es el directorio `.skills/`, un framework modular
 Este repositorio es la **Fuente de Verdad**.
 
 - Consulta `AGENTES.md` para ver las reglas de "Constitución" de la IA.
-- Consulta `LOG_SISTEMA_SKILLS.md` para ver la evolución del sistema.
+- Consulta `LOG_DESARROLLO.md` para ver la evolución del sistema.
 
 ### Para Agentes de IA
 
 Si has sido conectado a este workspace:
 
-1. **NO inventes**: Busca siempre primero en `.skills/index.md`.
+1. **NO inventes**: Busca siempre primero en `.skills/INDEX.md`.
 2. **Sé preciso**: Observa los `triggers` de las skills para cargar el contexto adecuado.
 3. **Obedece la Constitución**: Sigue estrictamente `AGENTES.md`.
 

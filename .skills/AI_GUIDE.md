@@ -466,9 +466,7 @@ Tú:
 ## 📚 Recursos
 
 - **Índice completo**: [INDEX.md](./INDEX.md)
-- **Guías de uso**: [QUICKSTART.md](./QUICKSTART.md)
-- **Estructura**: [STRUCTURE.md](./STRUCTURE.md)
-- **Registro**: [registry/index.json](./registry/index.json)
+- **Registro OpenSpec**: [registry/tools.yaml](./registry/tools.yaml)
 
 ---
 
